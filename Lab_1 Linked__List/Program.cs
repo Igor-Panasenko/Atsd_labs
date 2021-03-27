@@ -14,6 +14,12 @@ namespace Lab_1_Linked__List
         }
     }
 
+    class Linked_List {
+        public Node head;
+        public Linked_List() { }
+    }
+
+
     class Program
     {
         static void Main(string[] args)
