@@ -41,6 +41,7 @@ namespace Lab_1_Linked__List
                 if (temp.Next == null)
                 {
                     temp.Next = new_node;
+                    this.Count++;
                     break;
                 }
                 if (temp.Data <= new_data && temp.Next.Data>=new_data)
@@ -117,6 +118,7 @@ namespace Lab_1_Linked__List
 
             List_A.Is_Full();
             Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
+            Console.WriteLine("now in list " + List_A.List_Size() + " Items");
 
             List_A.Delete_List();
             Console.WriteLine("Now Linked list empty:" + List_A.Is_Empty());
