@@ -148,6 +148,34 @@ namespace Lab_1_Linked__List
 
         }
 
+        public int? Delete_Node(int What_delete)
+        {
+            Node temp = this.head;
+            Node prev = null;
+            if (temp.Data==What_delete && temp != null)
+            {
+                this.head = temp.Next;
+                return temp.Data;
+            }
+            else
+            {
+                prev = temp;
+                temp = temp.Next;
+            }
+            while (temp != null)
+            {
+                if (temp.Data == What_delete)
+                {
+                    prev.Next = temp.Next;
+                    return temp.Data;
+                }
+                prev = temp;
+                temp = temp.Next;
+            }
+            Console.WriteLine("no nodes with data in the List");
+            return null;
+        }
+
     }
    
 
@@ -162,13 +190,21 @@ namespace Lab_1_Linked__List
             List_A.Add_node(68);
             List_A.Add_node(53);
             List_A.Add_node(46);
+            List_A.Add_node(90);
 
             List_A.Print_List();
 
-            List_A.Search_Item(53);
+            /*List_A.Search_Item(53);
             List_A.Search_Item(35);
 
-            Console.WriteLine("Item 53 is in the List: " + List_A.Bool_Search(53));
+            Console.WriteLine("Item 53 is in the List: " + List_A.Bool_Search(53));*/
+
+            List_A.Delete_Node(53);
+            List_A.Print_List();
+            List_A.Delete_Node(34);
+            List_A.Print_List();
+            List_A.Delete_Node(90);
+            List_A.Print_List();
 
            /* List_A.Is_Full();
             Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
