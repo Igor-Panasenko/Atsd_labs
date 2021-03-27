@@ -214,6 +214,27 @@ namespace Lab_1_Linked__List
             return Sum;
         }
 
+        public Linked_List Get_Part(int start_from, int end_at)
+        {
+            Linked_List My_list = new Linked_List();
+            Node temp = this.head;
+            int coursor = 0;
+            while (coursor != start_from)
+            {
+                coursor++;
+                temp = temp.Next;
+            } 
+
+            for(int i= start_from; i<=end_at; i++)
+            {
+                My_list.Add_node(temp.Data);
+                temp = temp.Next;
+            }
+            return My_list;
+
+
+        }
+
     }
    
 
@@ -250,20 +271,32 @@ namespace Lab_1_Linked__List
             List_A.Print_List();
             Console.WriteLine("Sum of all nodes this list equal to: "+List_A.Sum_nodes());
 
-          
-
-           /* List_A.Print_List();
-            List_A.Delete_Node(34);
+            List_A.Add_node(5);
+            List_A.Add_node(39);
+            List_A.Add_node(78);
+            List_A.Add_node(45);
+            List_A.Add_node(55);
+            List_A.Add_node(75);
             List_A.Print_List();
-            List_A.Delete_Node(90);
-            List_A.Print_List();*/
 
-           /* List_A.Is_Full();
-            Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
-            Console.WriteLine("now in list " + List_A.List_Size() + " Items");
+            Linked_List Copy = List_A.Get_Part(2, 5);
+            Copy.Print_List();
 
-            List_A.Delete_List();
-            Console.WriteLine("Now Linked list empty:" + List_A.Is_Empty());*/
+
+
+
+            /* List_A.Print_List();
+             List_A.Delete_Node(34);
+             List_A.Print_List();
+             List_A.Delete_Node(90);
+             List_A.Print_List();*/
+
+            /* List_A.Is_Full();
+             Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
+             Console.WriteLine("now in list " + List_A.List_Size() + " Items");
+
+             List_A.Delete_List();
+             Console.WriteLine("Now Linked list empty:" + List_A.Is_Empty());*/
 
 
         }
