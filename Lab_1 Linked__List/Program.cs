@@ -100,6 +100,31 @@ namespace Lab_1_Linked__List
             return Count;
         }
 
+        public int? Search_Item(int search_for)
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("it is nothing in List now");
+                return null;
+            }
+            else
+            {
+                while (temp.Next != null)
+                {
+                    if (temp.Data == search_for)
+                    {
+                        Console.WriteLine("your item " + temp.Data + " is in a list");
+                        return temp.Data;
+                    }
+                    temp = temp.Next;
+                }
+                Console.WriteLine("your item " + search_for + " is not in a list");
+                return null;
+            }
+
+        }
+
     }
    
 
@@ -117,12 +142,15 @@ namespace Lab_1_Linked__List
 
             List_A.Print_List();
 
-            List_A.Is_Full();
+            List_A.Search_Item(53);
+            List_A.Search_Item(35);
+
+           /* List_A.Is_Full();
             Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
             Console.WriteLine("now in list " + List_A.List_Size() + " Items");
 
             List_A.Delete_List();
-            Console.WriteLine("Now Linked list empty:" + List_A.Is_Empty());
+            Console.WriteLine("Now Linked list empty:" + List_A.Is_Empty());*/
 
 
         }
