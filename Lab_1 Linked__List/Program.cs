@@ -6,7 +6,7 @@ namespace Lab_1_Linked__List
         protected int data;
         protected Node next;
         public int Data { get { return data; }  }
-        public Node Next { get { return next; } set { } }
+        public Node Next { get { return next; } set { next = value; } }
 
         public Node(int d) {
             data = d;
@@ -26,12 +26,12 @@ namespace Lab_1_Linked__List
         public void Add_node(int new_data)
         {
             Node new_node = new Node(new_data);
+            Node temp = this.head;
             if (this.head == null)
             {
                 this.head = new_node;
                 return;
             }
-            Node temp = this.head;
             while (true)
             {
                 if (temp.Next == null)
@@ -44,6 +44,7 @@ namespace Lab_1_Linked__List
                     Node peremena = temp.Next;
                     temp.Next = new_node;
                     new_node.Next = peremena;
+                    break;
                 }
                 temp = temp.Next;
 
@@ -76,6 +77,14 @@ namespace Lab_1_Linked__List
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            Linked_List List_A = new Linked_List();
+            List_A.Add_node(34);
+            List_A.Add_node(68);
+            List_A.Add_node(53);
+            List_A.Add_node(46);
+
+            List_A.Print_List();
 
 
         }
