@@ -17,6 +17,12 @@ namespace Lab_1_Linked__List
     class Linked_List {
         public Node head;
         public Linked_List() { }
+
+        public void Delete_List()
+        {
+            this.head = null;
+            Console.WriteLine("List was deleted" + "\n");
+        }
     }
 
 
