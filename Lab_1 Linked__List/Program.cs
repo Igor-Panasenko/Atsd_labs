@@ -23,6 +23,7 @@ namespace Lab_1_Linked__List
 
         public void Delete_List()
         {
+            this.Count = 0;
             this.head = null;
             Console.WriteLine("List was deleted" + "\n");
         }
