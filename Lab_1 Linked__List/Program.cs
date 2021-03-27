@@ -69,6 +69,12 @@ namespace Lab_1_Linked__List
             }
         }
 
+        public bool Is_Full()
+        {
+            Console.WriteLine(" LInked list can not be full");
+            return false;
+        }
+
     }
    
 
