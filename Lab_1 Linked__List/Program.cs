@@ -18,6 +18,9 @@ namespace Lab_1_Linked__List
         public Node head;
         public Linked_List() { }
 
+        protected int count = 0;
+        public int Count{ get{ return count; } set { count = value; } }
+
         public void Delete_List()
         {
             this.head = null;
@@ -29,6 +32,7 @@ namespace Lab_1_Linked__List
             Node temp = this.head;
             if (this.head == null)
             {
+                this.Count++;
                 this.head = new_node;
                 return;
             }
@@ -41,6 +45,7 @@ namespace Lab_1_Linked__List
                 }
                 if (temp.Data <= new_data && temp.Next.Data>=new_data)
                 {
+                    this.Count++;
                     Node peremena = temp.Next;
                     temp.Next = new_node;
                     new_node.Next = peremena;
@@ -71,7 +76,7 @@ namespace Lab_1_Linked__List
 
         public bool Is_Full()
         {
-            Console.WriteLine(" LInked list can not be full");
+            Console.WriteLine(" Linked list can not be full");
             return false;
         }
 
@@ -86,6 +91,11 @@ namespace Lab_1_Linked__List
                 return true;
             }
 
+        }
+
+        public int List_Size()
+        {
+            return Count;
         }
 
     }
