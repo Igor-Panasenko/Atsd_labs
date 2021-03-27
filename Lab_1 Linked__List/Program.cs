@@ -110,7 +110,7 @@ namespace Lab_1_Linked__List
             }
             else
             {
-                while (temp.Next != null)
+                while (temp != null)
                 {
                     if (temp.Data == search_for)
                     {
@@ -135,7 +135,7 @@ namespace Lab_1_Linked__List
             }
             else
             {
-                while (temp.Next != null)
+                while (temp != null)
                 {
                     if (temp.Data == search_for)
                     {
@@ -189,6 +189,19 @@ namespace Lab_1_Linked__List
             return temp.Data;
         }
 
+        public void Reverse()
+        {
+            Linked_List List_temp = new Linked_List();
+            int point = this.Count - 1;
+            for (int i=0; i<=point; i++)
+            {
+                int delete = Get_last();
+                List_temp.Add_node(delete);
+                this.Delete_Node(delete);
+            }
+            this.head = List_temp.head;
+        }
+
     }
    
 
@@ -208,13 +221,22 @@ namespace Lab_1_Linked__List
             List_A.Print_List();
 
             /*List_A.Search_Item(53);
-            List_A.Search_Item(35);
+            List_A.Search_Item(35);*/
 
-            Console.WriteLine("Item 53 is in the List: " + List_A.Bool_Search(53));*/
+            Console.WriteLine("Item 90 is in the List: " + List_A.Bool_Search(90));
 
             List_A.Delete_Node(53);
 
             Console.WriteLine("Last node in the list is: "+List_A.Get_last());
+            List_A.Print_List();
+            List_A.Reverse();
+            List_A.Print_List();
+            List_A.Delete_Node(68);
+            List_A.Print_List();
+            List_A.Search_Item(34);
+            Console.WriteLine("Item 34 is in the list" + List_A.Bool_Search(34));
+          
+
            /* List_A.Print_List();
             List_A.Delete_Node(34);
             List_A.Print_List();
