@@ -114,13 +114,36 @@ namespace Lab_1_Linked__List
                 {
                     if (temp.Data == search_for)
                     {
-                        Console.WriteLine("your item " + temp.Data + " is in a list");
+                        Console.WriteLine("your item " + temp.Data + " is in the list");
                         return temp.Data;
                     }
                     temp = temp.Next;
                 }
-                Console.WriteLine("your item " + search_for + " is not in a list");
+                Console.WriteLine("your item " + search_for + " is not in the list");
                 return null;
+            }
+
+        }
+
+        public bool Bool_Search (int search_for)
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("it is nothing in List now");
+                return false;
+            }
+            else
+            {
+                while (temp.Next != null)
+                {
+                    if (temp.Data == search_for)
+                    {
+                        return true;
+                    }
+                    temp = temp.Next;
+                }
+                return false;
             }
 
         }
@@ -144,6 +167,8 @@ namespace Lab_1_Linked__List
 
             List_A.Search_Item(53);
             List_A.Search_Item(35);
+
+            Console.WriteLine("Item 53 is in the List: " + List_A.Bool_Search(53));
 
            /* List_A.Is_Full();
             Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
