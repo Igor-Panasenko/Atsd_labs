@@ -50,6 +50,24 @@ namespace Lab_1_Linked__List
             }
         }
 
+        public void Print_List()
+        {
+            Node temp = head;
+            if (head == null)
+            {
+                Console.WriteLine("List is empty, nothing to print");
+            }
+            else
+            {
+                while (temp != null)
+                {
+                    Console.Write(temp.Data+", ");
+                    temp = temp.Next;
+                }
+                Console.WriteLine();
+            }
+        }
+
     }
    
 
@@ -58,6 +76,8 @@ namespace Lab_1_Linked__List
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+
         }
     }
 }
