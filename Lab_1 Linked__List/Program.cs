@@ -155,7 +155,9 @@ namespace Lab_1_Linked__List
             if (temp.Data==What_delete && temp != null)
             {
                 this.head = temp.Next;
+                this.Count--;
                 return temp.Data;
+               
             }
             else
             {
@@ -167,6 +169,7 @@ namespace Lab_1_Linked__List
                 if (temp.Data == What_delete)
                 {
                     prev.Next = temp.Next;
+                    this.Count--;
                     return temp.Data;
                 }
                 prev = temp;
@@ -174,6 +177,16 @@ namespace Lab_1_Linked__List
             }
             Console.WriteLine("no nodes with data in the List");
             return null;
+        }
+
+        public int Get_last()
+        {
+            Node temp = this.head;
+            for (int i=0; i<this.count-1; i++)
+            {
+                temp = temp.Next;
+            }
+            return temp.Data;
         }
 
     }
@@ -200,11 +213,13 @@ namespace Lab_1_Linked__List
             Console.WriteLine("Item 53 is in the List: " + List_A.Bool_Search(53));*/
 
             List_A.Delete_Node(53);
-            List_A.Print_List();
+
+            Console.WriteLine("Last node in the list is: "+List_A.Get_last());
+           /* List_A.Print_List();
             List_A.Delete_Node(34);
             List_A.Print_List();
             List_A.Delete_Node(90);
-            List_A.Print_List();
+            List_A.Print_List();*/
 
            /* List_A.Is_Full();
             Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
