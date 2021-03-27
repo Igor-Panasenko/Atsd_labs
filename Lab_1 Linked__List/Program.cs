@@ -75,6 +75,19 @@ namespace Lab_1_Linked__List
             return false;
         }
 
+        public bool Is_Empty()
+        {
+            if (this.head != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
     }
    
 
@@ -91,6 +104,12 @@ namespace Lab_1_Linked__List
             List_A.Add_node(46);
 
             List_A.Print_List();
+
+            List_A.Is_Full();
+            Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
+
+            List_A.Delete_List();
+            Console.WriteLine("Now Linked list empty:" + List_A.Is_Empty());
 
 
         }
