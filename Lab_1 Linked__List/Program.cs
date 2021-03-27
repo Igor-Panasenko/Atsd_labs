@@ -202,6 +202,18 @@ namespace Lab_1_Linked__List
             this.head = List_temp.head;
         }
 
+        public int Sum_nodes()
+        {
+            Node temp = this.head;
+            int Sum = 0;
+            while (temp != null)
+            {
+                Sum += temp.Data;
+                temp = temp.Next;
+            }
+            return Sum;
+        }
+
     }
    
 
@@ -234,7 +246,10 @@ namespace Lab_1_Linked__List
             List_A.Delete_Node(68);
             List_A.Print_List();
             List_A.Search_Item(34);
-            Console.WriteLine("Item 34 is in the list" + List_A.Bool_Search(34));
+            Console.WriteLine("Item 34 is in the list " + List_A.Bool_Search(34));
+            List_A.Print_List();
+            Console.WriteLine("Sum of all nodes this list equal to: "+List_A.Sum_nodes());
+
           
 
            /* List_A.Print_List();
