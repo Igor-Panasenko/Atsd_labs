@@ -233,13 +233,13 @@ namespace Lab_1_Linked__List
             return My_list;
         }
 
-        public void read(Linked_List list)
+        public void read()
         {
             Console.WriteLine("enter integer number to add in the List: ");
             int number = Convert.ToInt32(Console.ReadLine());
             while (number!=-10000)
             {
-                list.Add_node(number);
+                this.Add_node(number);
                 Console.WriteLine("enter new number or -10000 to end");
                 number = Convert.ToInt32(Console.ReadLine());
             }
@@ -255,10 +255,11 @@ namespace Lab_1_Linked__List
             Console.WriteLine("Hello World!");
 
             Linked_List List_A = new Linked_List();
-            List_A.read(List_A);
+            List_A.read();
+            List_A.Print_List();
 
 
-           /* List_A.Add_node(34);
+            List_A.Add_node(34);
             List_A.Add_node(68);
             List_A.Add_node(53);
             List_A.Add_node(46);
@@ -266,7 +267,7 @@ namespace Lab_1_Linked__List
 
             List_A.Print_List();
 
-            List_A.Search_Item(53);
+            /*List_A.Search_Item(53);
             List_A.Search_Item(35);
 
             Console.WriteLine("Item 90 is in the List: " + List_A.Bool_Search(90));
