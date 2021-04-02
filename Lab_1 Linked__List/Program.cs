@@ -235,13 +235,12 @@ namespace Lab_1_Linked__List
 
         public void read()
         {
-            Console.WriteLine("enter integer number to add in the List: ");
             int number = Convert.ToInt32(Console.ReadLine());
             while (number!=-10000)
-            {
-                this.Add_node(number);
+            { 
                 Console.WriteLine("enter new number or -10000 to end");
                 number = Convert.ToInt32(Console.ReadLine());
+                this.Add_node(number);
             }
         }
 
