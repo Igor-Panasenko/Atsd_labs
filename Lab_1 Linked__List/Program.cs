@@ -281,22 +281,18 @@ namespace Lab_1_Linked__List
 
             Linked_List Copy = List_A.Get_Part(2, 5);
             Copy.Print_List();
-
-
-
-
-            /* List_A.Print_List();
+            List_A.Print_List();
              List_A.Delete_Node(34);
              List_A.Print_List();
              List_A.Delete_Node(90);
-             List_A.Print_List();*/
+            List_A.Print_List();
 
-            /* List_A.Is_Full();
+             List_A.Is_Full();
              Console.WriteLine("Now Linked list empty:"+List_A.Is_Empty());
              Console.WriteLine("now in list " + List_A.List_Size() + " Items");
 
              List_A.Delete_List();
-             Console.WriteLine("Now Linked list empty:" + List_A.Is_Empty());*/
+             Console.WriteLine("Now Linked list empty:" + List_A.Is_Empty());
 
 
         }
