@@ -39,12 +39,20 @@ namespace Lab_1_Linked__List
             }
             while (true)
             {
+                if (temp.Data > new_data)
+                {
+                    this.head = new_node;
+                    new_node.Next = temp;
+                    this.Count++;
+                    break;
+                }
                 if (temp.Next == null)
                 {
                     temp.Next = new_node;
                     this.Count++;
                     break;
                 }
+                
                 if (temp.Data <= new_data && temp.Next.Data>=new_data)
                 {
                     this.Count++;
@@ -240,6 +248,10 @@ namespace Lab_1_Linked__List
             { 
                 Console.WriteLine("enter new number or -10000 to end");
                 number = Convert.ToInt32(Console.ReadLine());
+                if (number == -10000)
+                {
+                    break;
+                }
                 this.Add_node(number);
             }
         }
