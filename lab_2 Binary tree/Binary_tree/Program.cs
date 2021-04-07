@@ -54,7 +54,14 @@ namespace Binary_tree
             }
         }
 
-
+        public bool IsEmpty()
+        {
+            if (this.Root == null)
+            {
+                return true;
+            }
+            else { return false; }
+        }
     }
     class Program
     {
@@ -62,7 +69,7 @@ namespace Binary_tree
         {
             Console.WriteLine("Hello World!");
 
-           Node<int> mu_1 = new Node<int>(10);
+            Node<int> mu_1 = new Node<int>(10);
             Node<string> my_2 = new Node<string>("342");
             Node<double> my_3 = new Node<double>(32.2);
             Node<int> my_4 = new Node<int>(113);
@@ -70,6 +77,10 @@ namespace Binary_tree
             Node<double> my_6 = new Node<double>(17.2);
             int per2 = mu_1.Data.CompareTo(my_4.Data);
             Console.WriteLine(per2);
+
+            Binary_Tree<int> Tree_1 = new Binary_Tree<int>(45);
+            Tree_1.Insert(per2, Tree_1.Root);
+            Console.WriteLine(Tree_1.GetType());
 
 
         }
