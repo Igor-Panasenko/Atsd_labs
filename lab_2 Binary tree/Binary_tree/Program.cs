@@ -20,6 +20,14 @@ namespace Binary_tree
     class Binary_Tree<T> where T: IComparable
     {
         public Node<T> Root { get; set; } = null;
+        public Binary_Tree()
+        {
+
+        }
+        public Binary_Tree(T data)
+        {
+            Root = new Node<T>(data);
+        }
         public void Insert(T data, Node<T> node)
         {
             if (data.CompareTo(node.Data) > 0)
@@ -44,8 +52,6 @@ namespace Binary_tree
                     Console.WriteLine("Left");
                 }
             }
-
-
         }
 
 
@@ -56,13 +62,16 @@ namespace Binary_tree
         {
             Console.WriteLine("Hello World!");
 
-          /*  Node<int> mu_1 = new Node<int>(10);
+           Node<int> mu_1 = new Node<int>(10);
             Node<string> my_2 = new Node<string>("342");
             Node<double> my_3 = new Node<double>(32.2);
             Node<int> my_4 = new Node<int>(113);
             Node<string> my_5 = new Node<string>("89");
             Node<double> my_6 = new Node<double>(17.2);
-            mu_1.Left = my_3;*/
+            int per2 = mu_1.Data.CompareTo(my_4.Data);
+            Console.WriteLine(per2);
+
+
         }
     }
 }
