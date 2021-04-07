@@ -62,6 +62,12 @@ namespace Binary_tree
             }
             else { return false; }
         }
+
+        public bool IsFull()
+        {
+            Console.WriteLine("Binary_tree tree can not be full");
+            return false;
+        }
     }
     class Program
     {
