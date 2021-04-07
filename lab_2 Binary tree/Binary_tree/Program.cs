@@ -76,6 +76,22 @@ namespace Binary_tree
             return false;
         }
 
+        public void preorder()
+        {
+            rec_preorder(this.Root);
+        }
+        public void rec_preorder(Node<T> node) {
+            if (node == null)
+            {
+                return;
+            }
+         
+            Console.Write(node.Data + ", ");
+            rec_preorder(node.Left);
+            rec_preorder(node.Right);
+        }
+
+
     }
     class Program
     {
@@ -105,6 +121,8 @@ namespace Binary_tree
 
            int size= Tree_1.Number_elements;
             Console.WriteLine(size);
+
+            Tree_1.preorder();
 
 
 
