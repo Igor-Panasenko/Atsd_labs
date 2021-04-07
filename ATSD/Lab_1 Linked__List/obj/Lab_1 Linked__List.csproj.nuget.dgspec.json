@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\Lab_1 Linked__List\\Lab_1 Linked__List.csproj": {}
+    "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\ATSD\\Lab_1 Linked__List\\Lab_1 Linked__List.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\Lab_1 Linked__List\\Lab_1 Linked__List.csproj": {
+    "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\ATSD\\Lab_1 Linked__List\\Lab_1 Linked__List.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\Lab_1 Linked__List\\Lab_1 Linked__List.csproj",
+        "projectUniqueName": "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\ATSD\\Lab_1 Linked__List\\Lab_1 Linked__List.csproj",
         "projectName": "Lab_1 Linked__List",
-        "projectPath": "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\Lab_1 Linked__List\\Lab_1 Linked__List.csproj",
+        "projectPath": "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\ATSD\\Lab_1 Linked__List\\Lab_1 Linked__List.csproj",
         "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\Lab_1 Linked__List\\obj\\",
+        "outputPath": "C:\\Users\\Igor\\OneDrive\\Рабочий стол\\Университет\\1 курс\\2 семестр\\Git\\ATSD\\Lab_1 Linked__List\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Igor\\AppData\\Roaming\\NuGet\\NuGet.Config",
