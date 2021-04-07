@@ -97,15 +97,29 @@ namespace Binary_tree
         }
         private void rec_inorder(Node<T> node)
         {
-            if (node.Left != null)
+            if (node == null)
             {
-                rec_inorder(node.Left);
+                return;
             }
+            rec_inorder(node.Left);
             Console.Write(node.Data + ", ");
-            if(node.Right!= null)
+            rec_inorder(node.Right);
+        }
+
+        public void Post_order()
+        {
+            rec_postorder(this.Root);
+        }
+
+        private void rec_postorder(Node<T> node)
+        {
+            if (node == null)
             {
-                rec_inorder(node.Right);
+                return;
             }
+            rec_postorder(node.Left);
+            rec_postorder(node.Right);
+            Console.Write(node.Data+", ");
         }
 
 
@@ -142,6 +156,9 @@ namespace Binary_tree
             Tree_1.Preorder();
             Console.WriteLine();
             Tree_1.In_order();
+            Console.WriteLine();
+            Tree_1.Post_order();
+            
             
 
 
