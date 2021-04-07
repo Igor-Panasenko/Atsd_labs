@@ -87,6 +87,10 @@ namespace Binary_tree
             Binary_Tree<int> Tree_1 = new Binary_Tree<int>(45);
             Tree_1.Insert(per2, Tree_1.Root);
             Console.WriteLine(Tree_1.GetType());
+            Tree_1.IsFull();
+            Console.WriteLine(Tree_1.IsEmpty());
+            Binary_Tree<int> Tree_2 = new Binary_Tree<int>();
+            Console.WriteLine(Tree_2.IsEmpty());
 
 
         }
