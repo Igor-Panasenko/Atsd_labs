@@ -19,7 +19,34 @@ namespace Binary_tree
 
     class Binary_Tree<T> where T: IComparable
     {
-        public Node<T> root { get; set; } = null;
+        public Node<T> Root { get; set; } = null;
+        public void Insert(T data, Node<T> node)
+        {
+            if (data.CompareTo(node.Data) > 0)
+            {
+                if (node.Right == null)
+                {
+                    node.Right = new Node<T>(data);
+                    return;
+                }
+                    Insert(data, node.Right);
+                    Console.WriteLine("right");
+            }
+            else
+            {
+                if (data.CompareTo(node.Data) < 0)
+                {
+                    if (node.Left == null)
+                    {
+                        node.Left = new Node<T>(data);
+                    }
+                    Insert(data, node.Left);
+                    Console.WriteLine("Left");
+                }
+            }
+
+
+        }
 
 
     }
