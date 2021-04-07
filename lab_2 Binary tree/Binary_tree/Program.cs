@@ -1,8 +1,9 @@
 ﻿using System;
 
+
 namespace Binary_tree
 {
-    class Node<T> {
+    class Node<T> where T : IComparable<T> {
         public T Data;
         public int Height;
         public Node<T> Left;
@@ -12,8 +13,14 @@ namespace Binary_tree
             this.Data = data;
             Height = 1;
             }
+
     }
 
+    class Binary_Tree<T>
+    {
+
+
+    }
     class Program
     {
         static void Main(string[] args)
