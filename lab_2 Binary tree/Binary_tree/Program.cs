@@ -17,8 +17,9 @@ namespace Binary_tree
         public Node() { }
     }
 
-    class Binary_Tree<T>
+    class Binary_Tree<T> where T: IComparable
     {
+        public Node<T> root { get; set; } = null;
 
 
     }
