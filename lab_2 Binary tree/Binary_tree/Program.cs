@@ -76,11 +76,11 @@ namespace Binary_tree
             return false;
         }
 
-        public void preorder()
+        public void Preorder()
         {
             rec_preorder(this.Root);
         }
-        public void rec_preorder(Node<T> node) {
+        private void rec_preorder(Node<T> node) {
             if (node == null)
             {
                 return;
@@ -89,6 +89,23 @@ namespace Binary_tree
             Console.Write(node.Data + ", ");
             rec_preorder(node.Left);
             rec_preorder(node.Right);
+        }
+
+        public void In_order()
+        {
+            rec_inorder(this.Root);
+        }
+        private void rec_inorder(Node<T> node)
+        {
+            if (node.Left != null)
+            {
+                rec_inorder(node.Left);
+            }
+            Console.Write(node.Data + ", ");
+            if(node.Right!= null)
+            {
+                rec_inorder(node.Right);
+            }
         }
 
 
@@ -122,7 +139,10 @@ namespace Binary_tree
            int size= Tree_1.Number_elements;
             Console.WriteLine(size);
 
-            Tree_1.preorder();
+            Tree_1.Preorder();
+            Console.WriteLine();
+            Tree_1.In_order();
+            
 
 
 
