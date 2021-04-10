@@ -145,6 +145,13 @@ namespace Binary_tree
             }
             return height;
         }
+        private int balance_factor(Node<T> current)
+        {
+            int l = GetHeight(current.Left);
+            int r = GetHeight(current.Right);
+            int b_factor = l - r;
+            return b_factor;
+        }
 
 
     }
