@@ -6,7 +6,6 @@ namespace Binary_tree
 {
     class Node<T> where T : IComparable {
         public T Data;
-        public int Height = 0;
       
         public Node<T> Left = null;
         public Node<T> Right = null;
@@ -14,7 +13,7 @@ namespace Binary_tree
 
         public Node(T data){
             this.Data = data;
-            Height = 1;
+            
             }
         public Node() { }
     }
@@ -44,7 +43,7 @@ namespace Binary_tree
                     return;
                 }
                     Insert(data, node.Right);
-                    Console.WriteLine("right");
+                    Console.WriteLine("Right");
             }
             else
             {
@@ -145,6 +144,36 @@ namespace Binary_tree
             }
             return height;
         }
+
+        public Node<T> Balance_Tree(Node<T> node)
+        {
+            int balanced = balance_factor(node);
+            if (balanced > 1)
+            {
+                if (balance_factor(node.Left) > 0)
+                {
+                    node = Rotate_FullL(node);
+                }
+                else
+                {
+                    node = Rotate_LR(node);
+                }
+            }
+            else
+                if (balanced<-1)
+            {
+                if (balance_factor(node.Right) > 0)
+                {
+                    node = Rotate_RL(node);
+                }
+                else
+                {
+                    node = Rotate_FullR(node);
+                }
+            }
+            return node;
+        }
+
         private int balance_factor(Node<T> current)
         {
             int l = GetHeight(current.Left);
@@ -197,17 +226,23 @@ namespace Binary_tree
             Binary_Tree<int> Tree_1 = new Binary_Tree<int>(45);
             Tree_1.Insert(per2, Tree_1.Root);
             Tree_1.Insert(44, Tree_1.Root);
+            Tree_1.Insert(10, Tree_1.Root);
             Tree_1.Insert(55, Tree_1.Root);
             Tree_1.Insert(66, Tree_1.Root);
-            Console.WriteLine(Tree_1.GetType());
-            Tree_1.IsFull();
-            Console.WriteLine(Tree_1.IsEmpty());
-            Binary_Tree<int> Tree_2 = new Binary_Tree<int>();
-            Console.WriteLine(Tree_2.IsEmpty());
+            Tree_1.Insert(25, Tree_1.Root);
+            Tree_1.Insert(77, Tree_1.Root);
+            Tree_1.Insert(13, Tree_1.Root);
+            Tree_1.Insert(88, Tree_1.Root);
+            Tree_1.Insert(99, Tree_1.Root);
+            
+            
+            
+            /*Binary_Tree<int> Tree_2 = new Binary_Tree<int>();
+            Console.WriteLine(Tree_2.IsEmpty());*/
            
 
             Tree_1.Preorder();
-            Console.WriteLine();
+          /* Console.WriteLine();
             Tree_1.In_order();
             Console.WriteLine();
             Tree_1.Post_order();
@@ -215,7 +250,11 @@ namespace Binary_tree
             Console.WriteLine(Tree_1.Size());
             Console.WriteLine(Tree_2.Size());
             Console.WriteLine(Tree_1.GetHeight(Tree_1.Root));
-            Console.WriteLine(Tree_1.GetHeight(Tree_2.Root));
+            Console.WriteLine(Tree_1.GetHeight(Tree_2.Root));*/
+            Tree_1.Balance_Tree(Tree_1.Root.Left);
+            Console.WriteLine();
+            Tree_1.Preorder();
+
         }
     }
 }
