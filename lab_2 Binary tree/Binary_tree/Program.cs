@@ -23,14 +23,14 @@ namespace Binary_tree
     {
         public Node<T> Root { get; set; } = null;
         private int number_elements = 0;
-        public int Number_elements { get { return number_elements; } }
+        public int Number_elements { get { return number_elements; } set { number_elements = value; } }
         public Binary_Tree()
         {
 
         }
         public Binary_Tree(T data)
         {
-            this.number_elements++;
+            this.Number_elements++;
             Root = new Node<T>(data);
         }
         public void Insert(T data, Node<T> node)
@@ -39,7 +39,7 @@ namespace Binary_tree
             {
                 if (node.Right == null)
                 {
-                    this.number_elements++;
+                    this.Number_elements++;
                     node.Right = new Node<T>(data);
                     return;
                 }
@@ -52,7 +52,7 @@ namespace Binary_tree
                 {
                     if (node.Left == null)
                     {
-                        this.number_elements++;
+                        this.Number_elements++;
                         node.Left = new Node<T>(data);
                     }
                     Insert(data, node.Left);
@@ -121,6 +121,14 @@ namespace Binary_tree
             rec_postorder(node.Right);
             Console.Write(node.Data+", ");
         }
+        public int Size()
+        {
+            if (this.Number_elements == 0)
+            {
+                Console.WriteLine("it is nothing in the tree");
+            }
+            return this.Number_elements;
+        }
 
 
     }
@@ -149,19 +157,16 @@ namespace Binary_tree
             Console.WriteLine(Tree_1.IsEmpty());
             Binary_Tree<int> Tree_2 = new Binary_Tree<int>();
             Console.WriteLine(Tree_2.IsEmpty());
-
-           int size= Tree_1.Number_elements;
-            Console.WriteLine(size);
+           
 
             Tree_1.Preorder();
             Console.WriteLine();
             Tree_1.In_order();
             Console.WriteLine();
             Tree_1.Post_order();
-            
-            
-
-
+            Console.WriteLine();
+            Console.WriteLine(Tree_1.Size());
+            Console.WriteLine(Tree_2.Size());
 
         }
     }
