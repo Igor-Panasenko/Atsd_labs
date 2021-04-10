@@ -152,7 +152,13 @@ namespace Binary_tree
             int b_factor = l - r;
             return b_factor;
         }
-
+        private Node<T> Rotate_FullR(Node<T> parent)
+        {
+            Node<T> pivot = parent.Right;
+            parent.Right = pivot.Left;
+            pivot.Left = parent;
+            return pivot;
+        }
 
     }
     class Program
