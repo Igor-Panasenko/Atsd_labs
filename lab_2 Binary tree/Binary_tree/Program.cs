@@ -51,29 +51,20 @@ namespace Binary_tree
             if (current == null)
             {
                 current = new_node;
-                this.Number_elements++;
                 return current;
             }
             if (current.Data.CompareTo(new_node.Data) > 0)
             {
-                if (current.Right == null)
-                {
-                    this.Number_elements++;
-                    current.Right = new_node;
-                }
-                    InsertRec(current.Right, new_node);
+                current.Left = InsertRec(current.Left, new_node);
                 current = Balance_Tree(current);
+                
             }
             else
             {
                 if (current.Data.CompareTo(new_node.Data) < 0)
                 {
-                    if (current.Left == null)
-                    {
-                        this.Number_elements++;
-                        current.Left = new_node;
-                    }
-                    InsertRec(current.Left, new_node);
+                    current.Right = InsertRec(current.Right, new_node);
+                    current = Balance_Tree(current);
                 }
             }
             return current;
@@ -256,8 +247,8 @@ namespace Binary_tree
             
             
             
-            /*Binary_Tree<int> Tree_2 = new Binary_Tree<int>();
-            Console.WriteLine(Tree_2.IsEmpty());*/
+            Binary_Tree<int> Tree_2 = new Binary_Tree<int>();
+            Console.WriteLine(Tree_2.IsEmpty());
            
 
             Tree_1.Preorder();
