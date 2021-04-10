@@ -133,14 +133,24 @@ namespace Binary_tree
             rec_postorder(node.Right);
             Console.Write(node.Data+", ");
         }
-        public int Size()
+
+        public int Get_Size()
         {
-            if (this.Number_elements == 0)
-            {
-                Console.WriteLine("it is nothing in the tree");
-            }
-            return this.Number_elements;
+            return recSize(this.Root);
+
         }
+
+        private int recSize(Node<T> node)
+        {
+
+            if (node == null)
+            {
+                return 0;
+            }
+                return recSize(node.Right) + recSize(node.Left) + 1;
+            
+        }
+
         private int max(int l, int r)
         {
             return l > r ? l : r;
@@ -158,7 +168,7 @@ namespace Binary_tree
             return height;
         }
 
-        public Node<T> Balance_Tree(Node<T> node)
+        private Node<T> Balance_Tree(Node<T> node)
         {
             int balanced = balance_factor(node);
             if (balanced > 1)
@@ -258,8 +268,8 @@ namespace Binary_tree
             Console.WriteLine();
             Tree_1.Post_order();
             Console.WriteLine();
-            Console.WriteLine(Tree_1.Size());
-            Console.WriteLine(Tree_2.Size());
+            Console.WriteLine(Tree_1.Get_Size());
+            Console.WriteLine(Tree_2.Get_Size());
             Console.WriteLine(Tree_1.GetHeight(Tree_1.Root));
             Console.WriteLine(Tree_1.GetHeight(Tree_2.Root));      
           
