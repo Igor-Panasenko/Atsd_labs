@@ -87,6 +87,7 @@ namespace Binary_tree
 
         public void Preorder()
         {
+            Console.WriteLine("Pre order traversal of tree: ");
             rec_preorder(this.Root);
         }
         private void rec_preorder(Node<T> node) {
@@ -102,6 +103,7 @@ namespace Binary_tree
 
         public void In_order()
         {
+            Console.WriteLine("In order traversal of tree: ");
             rec_inorder(this.Root);
         }
         private void rec_inorder(Node<T> node)
@@ -117,6 +119,7 @@ namespace Binary_tree
 
         public void Post_order()
         {
+            Console.WriteLine("Post order traversal of tree: ");
             rec_postorder(this.Root);
         }
 
@@ -244,9 +247,7 @@ namespace Binary_tree
             Tree_1.Insert(13);
             Tree_1.Insert(88);
             Tree_1.Insert(99);
-            
-            
-            
+           
             Binary_Tree<int> Tree_2 = new Binary_Tree<int>();
             Console.WriteLine(Tree_2.IsEmpty());
            
