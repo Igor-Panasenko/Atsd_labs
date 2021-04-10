@@ -159,12 +159,18 @@ namespace Binary_tree
             pivot.Left = parent;
             return pivot;
         }
-        private Node<T> Rotate_FuulL(Node<T> parent)
+        private Node<T> Rotate_FullL(Node<T> parent)
         {
             Node<T> pivot = parent.Left;
             parent.Left = pivot.Right;
             pivot.Right = parent;
             return pivot;
+        }
+        private Node<T> Rotate_LR(Node<T> parent)
+        {
+            Node<T> pivot = parent.Left;
+            parent.Left = Rotate_FullR(pivot);
+            return Rotate_FullL(parent);
         }
 
     }
