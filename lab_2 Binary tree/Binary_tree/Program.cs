@@ -32,32 +32,51 @@ namespace Binary_tree
             this.Number_elements++;
             Root = new Node<T>(data);
         }
-        public void Insert(T data, Node<T> node)
+
+        public void Insert(T data)
         {
-            if (data.CompareTo(node.Data) > 0)
+            Node<T> new_node = new Node<T>(data);
+            if (this.Root == null)
             {
-                if (node.Right == null)
-                {
-                    this.Number_elements++;
-                    node.Right = new Node<T>(data);
-                    return;
-                }
-                    Insert(data, node.Right);
-                    Console.WriteLine("Right");
+                this.Number_elements++;
+                this.Root = new_node;
             }
             else
             {
-                if (data.CompareTo(node.Data) < 0)
+                Root = InsertRec(this.Root, new_node);
+            }
+        }
+        private Node<T> InsertRec(Node<T> current, Node<T> new_node)
+        {
+            if (current == null)
+            {
+                current = new_node;
+                this.Number_elements++;
+                return current;
+            }
+            if (current.Data.CompareTo(new_node.Data) > 0)
+            {
+                if (current.Right == null)
                 {
-                    if (node.Left == null)
+                    this.Number_elements++;
+                    current.Right = new_node;
+                }
+                    InsertRec(current.Right, new_node);
+                current = Balance_Tree(current);
+            }
+            else
+            {
+                if (current.Data.CompareTo(new_node.Data) < 0)
+                {
+                    if (current.Left == null)
                     {
                         this.Number_elements++;
-                        node.Left = new Node<T>(data);
+                        current.Left = new_node;
                     }
-                    Insert(data, node.Left);
-                    Console.WriteLine("Left");
+                    InsertRec(current.Left, new_node);
                 }
             }
+            return current;
         }
 
         public bool IsEmpty()
@@ -224,16 +243,16 @@ namespace Binary_tree
             Console.WriteLine(per2);
 
             Binary_Tree<int> Tree_1 = new Binary_Tree<int>(45);
-            Tree_1.Insert(per2, Tree_1.Root);
-            Tree_1.Insert(44, Tree_1.Root);
-            Tree_1.Insert(10, Tree_1.Root);
-            Tree_1.Insert(55, Tree_1.Root);
-            Tree_1.Insert(66, Tree_1.Root);
-            Tree_1.Insert(25, Tree_1.Root);
-            Tree_1.Insert(77, Tree_1.Root);
-            Tree_1.Insert(13, Tree_1.Root);
-            Tree_1.Insert(88, Tree_1.Root);
-            Tree_1.Insert(99, Tree_1.Root);
+            Tree_1.Insert(69);
+            Tree_1.Insert(44);
+            Tree_1.Insert(10);
+            Tree_1.Insert(55);
+            Tree_1.Insert(66);
+            Tree_1.Insert(25);
+            Tree_1.Insert(77);
+            Tree_1.Insert(13);
+            Tree_1.Insert(88);
+            Tree_1.Insert(99);
             
             
             
@@ -242,7 +261,7 @@ namespace Binary_tree
            
 
             Tree_1.Preorder();
-          /* Console.WriteLine();
+            Console.WriteLine();
             Tree_1.In_order();
             Console.WriteLine();
             Tree_1.Post_order();
@@ -250,10 +269,8 @@ namespace Binary_tree
             Console.WriteLine(Tree_1.Size());
             Console.WriteLine(Tree_2.Size());
             Console.WriteLine(Tree_1.GetHeight(Tree_1.Root));
-            Console.WriteLine(Tree_1.GetHeight(Tree_2.Root));*/
-            Tree_1.Balance_Tree(Tree_1.Root.Left);
-            Console.WriteLine();
-            Tree_1.Preorder();
+            Console.WriteLine(Tree_1.GetHeight(Tree_2.Root));      
+          
 
         }
     }
