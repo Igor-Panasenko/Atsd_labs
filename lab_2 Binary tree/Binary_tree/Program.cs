@@ -168,6 +168,17 @@ namespace Binary_tree
             return height;
         }
 
+        public T Delete(T value)
+        {
+            Node<T> res = Rec_Delete(this.Root, value);
+            return res.Data;
+
+        } 
+        private Node<T> Rec_Delete(Node<T> current, T value)
+        {
+            return this.Root;
+        }
+
         private Node<T> Balance_Tree(Node<T> node)
         {
             int balanced = balance_factor(node);
