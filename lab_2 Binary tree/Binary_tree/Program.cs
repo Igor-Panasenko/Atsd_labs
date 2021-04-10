@@ -129,6 +129,22 @@ namespace Binary_tree
             }
             return this.Number_elements;
         }
+        private int max(int l, int r)
+        {
+            return l > r ? l : r;
+        }
+        public int GetHeight(Node<T> node)
+        {
+            int height = 0;
+            if (node != null)
+            {
+                int l = GetHeight(node.Left);
+                int r = GetHeight(node.Right);
+                int m = max(l, r);
+                height = m + 1;
+            }
+            return height;
+        }
 
 
     }
@@ -167,7 +183,8 @@ namespace Binary_tree
             Console.WriteLine();
             Console.WriteLine(Tree_1.Size());
             Console.WriteLine(Tree_2.Size());
-
+            Console.WriteLine(Tree_1.GetHeight(Tree_1.Root));
+            Console.WriteLine(Tree_1.GetHeight(Tree_2.Root));
         }
     }
 }
