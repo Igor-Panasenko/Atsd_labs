@@ -172,7 +172,12 @@ namespace Binary_tree
             parent.Left = Rotate_FullR(pivot);
             return Rotate_FullL(parent);
         }
-
+        private Node<T> Rotate_RL(Node<T> parent)
+        {
+            Node<T> pivot = parent.Right;
+            parent.Right = Rotate_FullL(pivot);
+            return Rotate_FullR(parent);
+        }
     }
     class Program
     {
