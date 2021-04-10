@@ -176,7 +176,73 @@ namespace Binary_tree
         } 
         private Node<T> Rec_Delete(Node<T> current, T value)
         {
-            return this.Root;
+            Node<T> parent;
+            if (current == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (value.CompareTo(current.Data) < 0)
+                {
+                    current.Left = Rec_Delete(current.Left, value);
+                    if (balance_factor(current) == -2)
+                    {
+                        if (balance_factor(current.Right) <= 0)
+                        {
+                            current = Rotate_FullR(current);
+                        }
+                        else
+                        {
+                            current = Rotate_RL(current);
+                        }
+                    }
+                }
+                else 
+                    if(value.CompareTo(current.Data) > 0)
+                {
+                    current.Right = Rec_Delete(current.Right, value);
+                    if (balance_factor(current) == 2)
+                    {
+                        if (balance_factor(current.Left) >= 0)
+                        {
+                            current = Rotate_FullL(current);
+                        }
+                        else
+                        {
+                            current = Rotate_LR(current);
+                        }
+                    }
+                }
+                else
+                {
+                    if (current.Right != null)
+                    {
+                        parent = current.Right;
+                        while (parent.Left != null)
+                        {
+                            parent = parent.Left;
+                        }
+                        current.Data = parent.Data;
+                        current.Right = Rec_Delete(current.Right, parent.Data);
+                        if (balance_factor(current)== 2){
+                            if (balance_factor(current.Left) >= 0)
+                            {
+                                current = Rotate_FullL(current);
+                            }
+                            else
+                            {
+                                current = Rotate_LR(current);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return current.Left;
+                    }
+                }    
+            }
+            return current;
         }
 
         private Node<T> Balance_Tree(Node<T> node)
@@ -279,11 +345,15 @@ namespace Binary_tree
             Console.WriteLine();
             Tree_1.Post_order();
             Console.WriteLine();
+            Tree_1.Delete(66);
+            Tree_1.Preorder();
+
+            /*
             Console.WriteLine(Tree_1.Get_Size());
             Console.WriteLine(Tree_2.Get_Size());
             Console.WriteLine(Tree_1.GetHeight(Tree_1.Root));
             Console.WriteLine(Tree_1.GetHeight(Tree_2.Root));      
-          
+          */
 
         }
     }
