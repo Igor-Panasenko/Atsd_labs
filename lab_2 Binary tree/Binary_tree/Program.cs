@@ -245,6 +245,58 @@ namespace Binary_tree
             return current;
         }
 
+        public void Find(T key)
+        {
+            if (rec_find(key, Root) != null)
+            {
+                if (rec_find(key, Root).Data.CompareTo(key) == 0)
+                {
+                    Console.WriteLine("{0} was found!", key);
+                }
+                else
+                {
+                    Console.WriteLine("Nothing found!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nothing found!");
+            }
+        }
+
+        private Node<T> rec_find (T target, Node<T> current)
+        {
+            if (current != null)
+            {
+                if (target.CompareTo(current.Data) < 0)
+                {
+                    if (target.CompareTo(current.Data) == 0)
+                    {
+                        return current;
+                    }
+                    else
+                    {
+                        return rec_find(target, current.Left);
+                    }
+                }
+                else
+                {
+                    if (target.CompareTo(current.Data) == 0)
+                    {
+                        return current;
+                    }
+                    else
+                    {
+                        return rec_find(target, current.Right);
+                    }
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         private Node<T> Balance_Tree(Node<T> node)
         {
             int balanced = balance_factor(node);
@@ -347,6 +399,8 @@ namespace Binary_tree
             Console.WriteLine();
             Tree_1.Delete(66);
             Tree_1.Preorder();
+            Tree_1.Find(10);
+            Tree_1.Find(66);
 
             /*
             Console.WriteLine(Tree_1.Get_Size());
