@@ -309,9 +309,9 @@ namespace Binary_tree
             {
                 right_arr[i] = arrStr[i];
             }
-            string[] sorted_asc = sort_ascending(right_arr);
-            
-            Console.WriteLine(right_arr);
+            right_arr= sort_ascending(right_arr);
+            print_asc(right_arr);
+            print_desc(right_arr);
         }
 
         private void rec_forSorted(Node<T> node,ref string str)
@@ -340,6 +340,29 @@ namespace Binary_tree
                 }
             }
             return arr;
+        }
+
+        private void print_asc(string[] arr)
+        {
+            Console.WriteLine();
+            Console.WriteLine("tree keys sorted in ascending order: ");
+            for (int i=0; i<arr.Length; i++)
+            {
+                Console.Write(arr[i]+", ");
+            }
+            Console.WriteLine();
+        }
+
+        private void print_desc(string[] arr)
+        {
+            Console.WriteLine();
+            Console.WriteLine("tree keys sorted in descending order: ");
+            for (int i = arr.Length-1; i >=0; i--)
+            {
+                Console.Write(arr[i]+", ");
+            }
+            Console.WriteLine();
+
         }
        
 
