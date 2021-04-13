@@ -297,6 +297,26 @@ namespace Binary_tree
             }
         }
 
+        public void Print_Sorted()
+        {
+            Node < T > node= this.Root;
+            string str = "";
+            rec_forSorted(node,ref str);
+            Console.WriteLine(str);
+            
+        }
+
+        private void rec_forSorted(Node<T> node,ref string str)
+        {
+            if (node == null)
+            {
+                return;
+            }
+            str = str+node.Data + ",";
+            rec_forSorted(node.Left,ref str);
+            rec_forSorted(node.Right, ref str);
+        }
+
         private Node<T> Balance_Tree(Node<T> node)
         {
             int balanced = balance_factor(node);
@@ -366,15 +386,6 @@ namespace Binary_tree
         {
             Console.WriteLine("Hello World!");
 
-            Node<int> mu_1 = new Node<int>(10);
-            Node<string> my_2 = new Node<string>("342");
-            Node<double> my_3 = new Node<double>(32.2);
-            Node<int> my_4 = new Node<int>(113);
-            Node<string> my_5 = new Node<string>("89");
-            Node<double> my_6 = new Node<double>(17.2);
-            int per2 = mu_1.Data.CompareTo(my_4.Data);
-            Console.WriteLine(per2);
-
             Binary_Tree<int> Tree_1 = new Binary_Tree<int>(45);
             Tree_1.Insert(69);
             Tree_1.Insert(44);
@@ -401,6 +412,7 @@ namespace Binary_tree
             Tree_1.Preorder();
             Tree_1.Find(10);
             Tree_1.Find(66);
+            Tree_1.Print_Sorted();
 
             /*
             Console.WriteLine(Tree_1.Get_Size());
