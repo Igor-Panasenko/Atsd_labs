@@ -303,7 +303,15 @@ namespace Binary_tree
             string str = "";
             rec_forSorted(node,ref str);
             Console.WriteLine(str);
+            string[] arrStr = str.Split(",");
+            string[] right_arr = new string[arrStr.Length - 1];
+            for (int i=0; i<right_arr.Length; i++)
+            {
+                right_arr[i] = arrStr[i];
+            }
+            string[] sorted_asc = sort_ascending(right_arr);
             
+            Console.WriteLine(right_arr);
         }
 
         private void rec_forSorted(Node<T> node,ref string str)
@@ -316,6 +324,24 @@ namespace Binary_tree
             rec_forSorted(node.Left,ref str);
             rec_forSorted(node.Right, ref str);
         }
+
+        private string[] sort_ascending(string[] arr)
+        {
+            for(int i=0; i<arr.Length; i++)
+            {
+                for(int j=i; j< arr.Length; j++)
+                {
+                    if (arr[i].CompareTo(arr[j])>0)
+                    {
+                        string ch = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = ch;
+                    }
+                }
+            }
+            return arr;
+        }
+       
 
         private Node<T> Balance_Tree(Node<T> node)
         {
