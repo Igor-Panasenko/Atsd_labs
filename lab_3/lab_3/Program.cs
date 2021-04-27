@@ -265,8 +265,26 @@ namespace lab_3
             if (largest != key)
             {
                 swap(ref HeapArray[key], ref HeapArray[largest]);
-                MinHeapify(largest);
+                MaxHeapify(largest);
             }
+        }
+        public T ExtractMax()
+        {
+            if (SizeOfHeap == 0)
+            {
+                return default(T);
+            }
+            if (SizeOfHeap == 1)
+            {
+                SizeOfHeap--;
+                return HeapArray[0];
+            }
+
+            T root = HeapArray[0];
+            HeapArray[0] = HeapArray[SizeOfHeap - 1];
+            SizeOfHeap--;
+            MaxHeapify(0);
+            return root;
         }
 
 
