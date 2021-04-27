@@ -3,7 +3,7 @@
 namespace lab_3
 {
 
-    class BinaryHeap<T> where T:IComparable {
+    class BinaryHeap<T> where T : IComparable {
 
         public T[] HeapArray;
         private int sizeOfHeap;
@@ -18,6 +18,13 @@ namespace lab_3
                 sizeOfHeap = value;
             }
         }
+        public BinaryHeap (int size){
+            this.HeapArray = new T [size + 1];
+            this.sizeOfHeap = 0;
+            Console.WriteLine("Heap structure was created");
+
+            }
+
     
     }
 
