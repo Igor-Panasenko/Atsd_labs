@@ -242,6 +242,12 @@ namespace lab_3
                 i = ParentByIndex(i);
             }
         }
+        private static void swap(ref T value_1, ref T value_2)
+        {
+            T temp = value_1;
+            value_1 = value_2;
+            value_2 = temp;
+        }
 
 
 
