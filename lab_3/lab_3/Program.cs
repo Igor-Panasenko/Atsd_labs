@@ -180,15 +180,23 @@ namespace lab_3
             }
         }
     }
+
+
     public class Sort_Ascending<T> where T:IComparable
     {
-     public void Sort_ascending(T[] arr)
+     public void Sort_ascending( ref T[] arr)
         {
             MinHeap<T> heap = new MinHeap<T>(arr.Length);
             for(int i=0; i<arr.Length; i++)
             {
                 heap.insertKey(arr[i]);
             }
+            T[] temp_arr = new T[heap.SizeOfHeap];
+            for(int i=0; i<temp_arr.Length; i++)
+            {
+                temp_arr[i] = heap.ExtractMin();
+            }
+            arr = temp_arr;
         }
     }
 
@@ -209,7 +217,22 @@ namespace lab_3
             Console.WriteLine();
             Console.WriteLine(heap.getMin());
             Console.WriteLine();
-            
+            int[] arr = {45, 56,78,1,415,16,34 };
+            Console.WriteLine();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + ", ");
+            }
+            Console.WriteLine();
+            Sort_Ascending<int> sort_= new();
+            sort_.Sort_ascending(ref arr);
+            Console.WriteLine();
+            for (int i=0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + ", ");
+            }
+            Console.WriteLine();
+
         }
     }
 }
