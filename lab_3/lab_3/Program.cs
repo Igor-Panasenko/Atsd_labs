@@ -27,7 +27,7 @@ namespace lab_3
         {
             this.HeapArray = new T[9];
             this.SizeOfHeap = 0;
-            Console.WriteLine("Empty heap structure was created")
+            Console.WriteLine("Empty heap structure was created");
         }
 
         public T PeekOfHeap()
@@ -40,6 +40,11 @@ namespace lab_3
             {
                 return HeapArray[1];
             }
+        }
+
+       public int ParentByIndex(int key)
+        {
+            return (key - 1) / 2;
         }
 
     
