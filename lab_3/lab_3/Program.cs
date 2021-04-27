@@ -72,6 +72,7 @@ namespace lab_3
                     temp[j] = HeapArray[j];
                 }
                 this.HeapArray = temp;
+                Console.WriteLine("max size of heap array increased");
             }
             int i = SizeOfHeap;
             HeapArray[i] = value;
@@ -79,6 +80,20 @@ namespace lab_3
             while (i != 0 && HeapArray[i].CompareTo(HeapArray[ParentByIndex(i)])<0){
                 swap(ref HeapArray[i], ref HeapArray[ParentByIndex(i)]);
                 i = ParentByIndex(i);
+            }
+        }
+
+        public void DecreaseKey(int key, T new_val)
+        {
+            if (new_val.CompareTo(HeapArray[key]) > 0)
+            {
+                Console.WriteLine("new value must be less");
+            }
+            HeapArray[key] = new_val;
+            while ( key != 0 && HeapArray[key].CompareTo(HeapArray[ParentByIndex(key)]) < 0)
+            {
+                swap(ref HeapArray[key], ref HeapArray[ParentByIndex(key)]);
+                key = ParentByIndex(key);
             }
         }
 
