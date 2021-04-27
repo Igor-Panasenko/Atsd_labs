@@ -172,20 +172,17 @@ namespace lab_3
         }
         public void PrintHeap()
         {
-            /*int n = SizeOfHeap;
+            int n = SizeOfHeap;
             Console.WriteLine();
-            for(int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
                 Console.Write(HeapArray[i] + ",  ");
-            }*/
-            while (SizeOfHeap > 0)
-            {
-                Console.WriteLine(this.ExtractMin()+", ");
             }
-            
         }
-
-
+    }
+    public class Sort_Ascending<T>
+    {
+     
     }
 
     class Program
@@ -201,12 +198,15 @@ namespace lab_3
             heap.insertKey(34);
             heap.PrintHeap();
             heap.changeValueOnKey(0, 78);
+            heap.PrintHeap();
             Console.WriteLine();
             Console.WriteLine(heap.getMin());
             Console.WriteLine();
-            heap.PrintHeap();
-            heap.MinHeapify(0);
-            heap.PrintHeap();
+            Console.WriteLine(heap.ExtractMin());
+            Console.WriteLine(heap.ExtractMin());
+            Console.WriteLine(heap.ExtractMin());
+            Console.WriteLine(heap.ExtractMin());
+            Console.WriteLine(heap.ExtractMin());
         }
     }
 }
