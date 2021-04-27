@@ -174,7 +174,7 @@ namespace lab_3
         {
             int n = SizeOfHeap;
             Console.WriteLine();
-            for(int i=0; i<=n; i++)
+            for(int i=0; i<n; i++)
             {
                 Console.Write(HeapArray[i] + ",  ");
             }
@@ -188,6 +188,14 @@ namespace lab_3
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            BinaryHeap<int> heap= new BinaryHeap<int>(2);
+            heap.insertKey(45);
+            heap.insertKey(31);
+            heap.insertKey(54);
+            heap.insertKey(19);
+            heap.insertKey(34);
+            Console.WriteLine(heap.getMin());
+            heap.PrintHeap();
         }
     }
 }
