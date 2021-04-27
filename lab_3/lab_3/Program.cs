@@ -169,7 +169,15 @@ namespace lab_3
             {
                 this.DecreaseKey(key, new_value);
             }
-
+        }
+        public void PrintHeap()
+        {
+            int n = SizeOfHeap;
+            Console.WriteLine();
+            for(int i=0; i<=n; i++)
+            {
+                Console.Write(HeapArray[i] + ",  ");
+            }
         }
 
 
