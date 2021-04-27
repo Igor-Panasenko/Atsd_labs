@@ -42,7 +42,7 @@ namespace lab_3
             }
         }
 
-       public int ParentByIndex(int key)
+       private int ParentByIndex(int key)
         {
             return (key - 1) / 2;
         }
@@ -53,11 +53,11 @@ namespace lab_3
             value_1 = value_2;
             value_2 = temp;
         }
-        public int GetLeft(int key)
+        private int GetLeft(int key)
         {
             return 2 * key + 1;
         }
-        public int GetRight(int key)
+        private int GetRight(int key)
         {
             return 2 * key + 2;
         }
@@ -241,11 +241,18 @@ namespace lab_3
             }
             arr = temp_arr;
         }
-        public int ParentByIndex(int key)
+        private int ParenByIndex(int key)
         {
             return (key - 1) / 2;
         }
-
+        private int GetLeft(int key)
+        {
+            return 2 * key + 1;
+        }
+        private int GetRight(int key)
+        {
+            return 2 * key + 2;
+        }
     }
 
     class Program
