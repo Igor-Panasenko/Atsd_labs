@@ -241,6 +241,11 @@ namespace lab_3
             }
             arr = temp_arr;
         }
+        public int ParentByIndex(int key)
+        {
+            return (key - 1) / 2;
+        }
+
     }
 
     class Program
