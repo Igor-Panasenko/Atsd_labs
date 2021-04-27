@@ -21,13 +21,13 @@ namespace lab_3
         public MinHeap (int size){
             this.HeapArray = new T [size + 1];
             this.sizeOfHeap = 0;
-            Console.WriteLine("Heap structure was created");
+            Console.WriteLine("Min Heap structure was created");
             }
         public MinHeap()
         {
             this.HeapArray = new T[9];
             this.SizeOfHeap = 0;
-            Console.WriteLine("Empty heap structure was created");
+            Console.WriteLine("Min Empty heap structure was created");
         }
 
         public T PeekOfHeap()
@@ -196,7 +196,18 @@ namespace lab_3
                 sizeOfHeap = value;
             }
         }
-
+        public Max_heap(int size)
+        {
+            this.HeapArray = new T[size + 1];
+            this.sizeOfHeap = 0;
+            Console.WriteLine("Max Heap structure was created");
+        }
+        public Max_heap()
+        {
+            this.HeapArray = new T[9];
+            this.SizeOfHeap = 0;
+            Console.WriteLine("Empty Max heap structure was created");
+        }
 
 
 
