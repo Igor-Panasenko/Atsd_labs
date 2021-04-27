@@ -83,19 +83,7 @@ namespace lab_3
             }
         }
 
-        public void DecreaseKey(int key, T new_val)
-        {
-            if (new_val.CompareTo(HeapArray[key]) > 0)
-            {
-                Console.WriteLine("new value must be less");
-            }
-            HeapArray[key] = new_val;
-            while ( key != 0 && HeapArray[key].CompareTo(HeapArray[ParentByIndex(key)]) < 0)
-            {
-                swap(ref HeapArray[key], ref HeapArray[ParentByIndex(key)]);
-                key = ParentByIndex(key);
-            }
-        }
+
         public T getMin()
         {
             return HeapArray[0];
@@ -121,7 +109,7 @@ namespace lab_3
             
         }
 
-        public void MinHeapify(int key)
+        private void MinHeapify(int key)
         {
             int left = GetLeft(key);
             int right = GetRight(key);
@@ -148,13 +136,43 @@ namespace lab_3
             ExtractMin();
         }
 
-        public void IncreaseKey(int key, T new_value)
+        private void IncreaseKey(int key, T new_value)
         {
             HeapArray[key] = new_value;
             MinHeapify(key);
         }
+        private void DecreaseKey(int key, T new_val)
+        {
+            if (new_val.CompareTo(HeapArray[key]) > 0)
+            {
+                Console.WriteLine("new value must be less");
+            }
+            HeapArray[key] = new_val;
+            while (key != 0 && HeapArray[key].CompareTo(HeapArray[ParentByIndex(key)]) < 0)
+            {
+                swap(ref HeapArray[key], ref HeapArray[ParentByIndex(key)]);
+                key = ParentByIndex(key);
+            }
+        }
+        public void changeValueOnKey(int key, T new_value)
+        {
+            if (HeapArray[key].CompareTo(new_value) == 0)
+            {
+                return;
+            }
+            if (HeapArray[key].CompareTo(new_value) < 0)
+            {
+                this.IncreaseKey(key, new_value);
+                
+            }
+            if (HeapArray[key].CompareTo(new_value) > 0)
+            {
+                this.DecreaseKey(key, new_value);
+            }
 
-    
+        }
+
+
     }
 
     class Program
