@@ -101,6 +101,23 @@ namespace lab_3
             return HeapArray[0];
         }
 
+        public T ExtractMin()
+        {
+            if (SizeOfHeap == 0)
+            {
+                return default(T);
+            }
+            if (SizeOfHeap == 1)
+            {
+                SizeOfHeap--;
+                return HeapArray[0];
+            }
+
+            T root = HeapArray[0];
+            HeapArray[0] = HeapArray[SizeOfHeap - 1];
+            SizeOfHeap--;
+            
+        }
     
     }
 
