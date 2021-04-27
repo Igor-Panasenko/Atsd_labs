@@ -22,8 +22,13 @@ namespace lab_3
             this.HeapArray = new T [size + 1];
             this.sizeOfHeap = 0;
             Console.WriteLine("Heap structure was created");
-
             }
+        public BinaryHeap()
+        {
+            this.HeapArray = new T[9];
+            this.SizeOfHeap = 0;
+            Console.WriteLine("Empty heap structure was created")
+        }
 
     
     }
