@@ -116,6 +116,8 @@ namespace lab_3
             T root = HeapArray[0];
             HeapArray[0] = HeapArray[SizeOfHeap - 1];
             SizeOfHeap--;
+            MinHeapify(0);
+            return root;
             
         }
 
