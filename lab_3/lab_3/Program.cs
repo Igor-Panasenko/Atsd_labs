@@ -147,6 +147,13 @@ namespace lab_3
             DecreaseKey(key, default(T));
             ExtractMin();
         }
+
+        public void IncreaseKey(int key, T new_value)
+        {
+            HeapArray[key] = new_value;
+            MinHeapify(key);
+        }
+
     
     }
 
