@@ -141,6 +141,12 @@ namespace lab_3
                 MinHeapify(smallest);
             }
         }
+
+        public void DeleteByKey(int key)
+        {
+            DecreaseKey(key, default(T));
+            ExtractMin();
+        }
     
     }
 
