@@ -209,7 +209,7 @@ namespace lab_3
             Console.WriteLine("Empty Max heap structure was created");
         }
 
-        private int ParenByIndex(int key)
+        private int ParentByIndex(int key)
         {
             return (key - 1) / 2;
         }
@@ -220,6 +220,27 @@ namespace lab_3
         private int GetRight(int key)
         {
             return 2 * key + 2;
+        }
+        public void insertKey(T value)
+        {
+            if (this.SizeOfHeap == HeapArray.Length - 1)
+            {
+                T[] temp = new T[HeapArray.Length * 2];
+                for (int j = 0; j < HeapArray.Length; j++)
+                {
+                    temp[j] = HeapArray[j];
+                }
+                this.HeapArray = temp;
+                Console.WriteLine("max size of heap array increased");
+            }
+            int i = SizeOfHeap;
+            HeapArray[i] = value;
+            SizeOfHeap += 1;
+            while (i != 0 && HeapArray[i].CompareTo(HeapArray[ParentByIndex(i)]) > 0)
+            {
+                swap(ref HeapArray[i], ref HeapArray[ParentByIndex(i)]);
+                i = ParentByIndex(i);
+            }
         }
 
 
