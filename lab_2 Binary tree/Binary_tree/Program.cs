@@ -448,6 +448,7 @@ namespace Binary_tree
             Tree_1.Insert(99);
            
             Binary_Tree<int> Tree_2 = new Binary_Tree<int>();
+            Console.WriteLine();
             Console.WriteLine(Tree_2.IsEmpty());
            
 
@@ -459,16 +460,25 @@ namespace Binary_tree
             Console.WriteLine();
             Tree_1.Delete(66);
             Tree_1.Preorder();
+            Console.WriteLine();
+            Console.WriteLine("trying to find 10: ");
+            Console.WriteLine();
             Tree_1.Find(10);
+            Console.WriteLine("trying to find 66: ");
+            Console.WriteLine();
             Tree_1.Find(66);
+            Console.WriteLine();
             Tree_1.Print_Sorted();
 
-            /*
+            Console.WriteLine("getting size of trer 1: ");
             Console.WriteLine(Tree_1.Get_Size());
+            Console.WriteLine("getting size of tree 2: ");
             Console.WriteLine(Tree_2.Get_Size());
+            Console.WriteLine("get height of tree 1: ");
             Console.WriteLine(Tree_1.GetHeight(Tree_1.Root));
+            Console.WriteLine("get height of tree 2: ");
             Console.WriteLine(Tree_1.GetHeight(Tree_2.Root));      
-          */
+          
 
         }
     }
