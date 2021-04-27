@@ -183,6 +183,35 @@ namespace lab_3
     public class Max_heap<T> where T : IComparable
     {
 
+        public T[] HeapArray;
+        private int sizeOfHeap;
+        public int SizeOfHeap
+        {
+            get
+            {
+                return sizeOfHeap;
+            }
+            set
+            {
+                sizeOfHeap = value;
+            }
+        }
+
+
+
+
+
+
+        public void PrintHeap()
+        {
+            int n = SizeOfHeap;
+            Console.WriteLine();
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(HeapArray[i] + ",  ");
+            }
+        }
+
     }
 
     public class Sort_Ascending<T> where T:IComparable
