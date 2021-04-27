@@ -180,7 +180,10 @@ namespace lab_3
             }
         }
     }
+    public class Max_heap<T> where T : IComparable
+    {
 
+    }
 
     public class Sort_Ascending<T> where T:IComparable
     {
