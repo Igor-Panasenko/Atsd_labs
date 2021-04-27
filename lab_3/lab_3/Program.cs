@@ -118,6 +118,27 @@ namespace lab_3
             SizeOfHeap--;
             
         }
+
+        public void MinHeapify(int key)
+        {
+            int left = GetLeft(key);
+            int right = GetRight(key);
+
+            int smallest = key;
+            if (left < SizeOfHeap && HeapArray[left].CompareTo(HeapArray[smallest]) < 0)
+            {
+                smallest = left;
+            }
+            if(right<SizeOfHeap&& HeapArray[right].CompareTo(HeapArray[smallest]) < 0)
+            {
+                smallest = right;
+            }
+            if (smallest != key)
+            {
+                swap(ref HeapArray[key], ref HeapArray[smallest]);
+                MinHeapify(smallest);
+            }
+        }
     
     }
 
