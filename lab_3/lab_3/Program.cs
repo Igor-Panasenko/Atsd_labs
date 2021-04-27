@@ -62,7 +62,25 @@ namespace lab_3
             return 2 * key + 1;
         }
 
-
+        public void insertKey (T value)
+        {
+            if (this.SizeOfHeap == HeapArray.Length - 1)
+            {
+                T[] temp = new T[HeapArray.Length * 2];
+                for(int j=0; j<HeapArray.Length; j++)
+                {
+                    temp[j] = HeapArray[j];
+                }
+                this.HeapArray = temp;
+            }
+            int i = SizeOfHeap;
+            HeapArray[i] = value;
+            SizeOfHeap += 1;
+            while (i != 0 && HeapArray[i].CompareTo(HeapArray[ParentByIndex(i)])<0){
+                swap(ref HeapArray[i], ref HeapArray[ParentByIndex(i)]);
+                i = ParentByIndex(i);
+            }
+        }
 
     
     }
