@@ -209,7 +209,18 @@ namespace lab_3
             Console.WriteLine("Empty Max heap structure was created");
         }
 
-
+        private int ParenByIndex(int key)
+        {
+            return (key - 1) / 2;
+        }
+        private int GetLeft(int key)
+        {
+            return 2 * key + 1;
+        }
+        private int GetRight(int key)
+        {
+            return 2 * key + 2;
+        }
 
 
 
@@ -241,18 +252,7 @@ namespace lab_3
             }
             arr = temp_arr;
         }
-        private int ParenByIndex(int key)
-        {
-            return (key - 1) / 2;
-        }
-        private int GetLeft(int key)
-        {
-            return 2 * key + 1;
-        }
-        private int GetRight(int key)
-        {
-            return 2 * key + 2;
-        }
+        
     }
 
     class Program
