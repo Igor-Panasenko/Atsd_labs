@@ -30,6 +30,18 @@ namespace lab_3
             Console.WriteLine("Empty heap structure was created")
         }
 
+        public T PeekOfHeap()
+        {
+            if (SizeOfHeap == 0)
+            {
+                return default(T);
+            }
+            else
+            {
+                return HeapArray[1];
+            }
+        }
+
     
     }
 
