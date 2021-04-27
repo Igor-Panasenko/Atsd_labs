@@ -53,6 +53,10 @@ namespace lab_3
             value_1 = value_2;
             value_2 = temp;
         }
+        public int GetLeft(int key)
+        {
+            return 2 * key + 1;
+        }
 
     
     }
