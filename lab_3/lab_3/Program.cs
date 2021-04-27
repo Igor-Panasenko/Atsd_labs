@@ -3,7 +3,7 @@
 namespace lab_3
 {
 
-    class BinaryHeap<T> where T : IComparable {
+    class MinHeap<T> where T : IComparable {
 
         public T[] HeapArray;
         private int sizeOfHeap;
@@ -18,12 +18,12 @@ namespace lab_3
                 sizeOfHeap = value;
             }
         }
-        public BinaryHeap (int size){
+        public MinHeap (int size){
             this.HeapArray = new T [size + 1];
             this.sizeOfHeap = 0;
             Console.WriteLine("Heap structure was created");
             }
-        public BinaryHeap()
+        public MinHeap()
         {
             this.HeapArray = new T[9];
             this.SizeOfHeap = 0;
@@ -59,7 +59,7 @@ namespace lab_3
         }
         public int GetRight(int key)
         {
-            return 2 * key + 1;
+            return 2 * key + 2;
         }
 
         public void insertKey (T value)
@@ -109,7 +109,7 @@ namespace lab_3
             
         }
 
-        private void MinHeapify(int key)
+        public void MinHeapify(int key)
         {
             int left = GetLeft(key);
             int right = GetRight(key);
@@ -172,12 +172,17 @@ namespace lab_3
         }
         public void PrintHeap()
         {
-            int n = SizeOfHeap;
+            /*int n = SizeOfHeap;
             Console.WriteLine();
             for(int i=0; i<n; i++)
             {
                 Console.Write(HeapArray[i] + ",  ");
+            }*/
+            while (SizeOfHeap > 0)
+            {
+                Console.WriteLine(this.ExtractMin()+", ");
             }
+            
         }
 
 
@@ -188,13 +193,19 @@ namespace lab_3
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            BinaryHeap<int> heap= new BinaryHeap<int>(2);
+            MinHeap<int> heap= new MinHeap<int>(4);
             heap.insertKey(45);
             heap.insertKey(31);
             heap.insertKey(54);
             heap.insertKey(19);
             heap.insertKey(34);
+            heap.PrintHeap();
+            heap.changeValueOnKey(0, 78);
+            Console.WriteLine();
             Console.WriteLine(heap.getMin());
+            Console.WriteLine();
+            heap.PrintHeap();
+            heap.MinHeapify(0);
             heap.PrintHeap();
         }
     }
