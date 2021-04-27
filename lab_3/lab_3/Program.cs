@@ -248,6 +248,26 @@ namespace lab_3
             value_1 = value_2;
             value_2 = temp;
         }
+        public void MaxHeapify(int key)
+        {
+            int left = GetLeft(key);
+            int right = GetRight(key);
+
+            int largest = key;
+            if (left < SizeOfHeap && HeapArray[left].CompareTo(HeapArray[largest]) > 0)
+            {
+                largest = left;
+            }
+            if (right < SizeOfHeap && HeapArray[right].CompareTo(HeapArray[largest]) > 0)
+            {
+                largest = right;
+            }
+            if (largest != key)
+            {
+                swap(ref HeapArray[key], ref HeapArray[largest]);
+                MinHeapify(largest);
+            }
+        }
 
 
 
