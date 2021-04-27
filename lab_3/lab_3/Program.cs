@@ -96,6 +96,10 @@ namespace lab_3
                 key = ParentByIndex(key);
             }
         }
+        public T getMin()
+        {
+            return HeapArray[0];
+        }
 
     
     }
