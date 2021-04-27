@@ -57,6 +57,12 @@ namespace lab_3
         {
             return 2 * key + 1;
         }
+        public int GetRight(int key)
+        {
+            return 2 * key + 1;
+        }
+
+
 
     
     }
