@@ -213,6 +213,14 @@ namespace lab_3
             this.SizeOfHeap = 0;
             Console.WriteLine("Empty Max heap structure was created");
         }
+        public Max_heap(T[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                this.insertKey(arr[i]);
+            }
+            
+        }
 
         private int ParentByIndex(int key)
         {
@@ -390,7 +398,11 @@ namespace lab_3
         }
         public void Heap_sort_desc()
         {
-
+            Max_heap<T> heap = new Max_heap<T>(arr);
+            for(int i=0; i < arr.Length; i++)
+            {
+                arr[i] = heap.ExtractMax();
+            }
         }
     }
 
