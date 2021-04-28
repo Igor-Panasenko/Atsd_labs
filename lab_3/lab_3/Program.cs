@@ -360,6 +360,17 @@ namespace lab_3
                 return false;
             }
         }
+        public bool Is_Full()
+        {
+            if (number_items == max_size)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     
