@@ -317,6 +317,22 @@ namespace lab_3
             }
             arr = temp_arr;
         }
+
+        public void Sort_descending(ref T [] arr)
+        {
+            Max_heap<T> heap = new Max_heap<T>(arr.Length);
+            for(int i=0; i<arr.Length; i++)
+            {
+                heap.insertKey(arr[i]);
+            }
+            T[] temp_arr = new T[heap.SizeOfHeap];
+            for(int i=0; i < heap.SizeOfHeap; i++)
+            {
+                temp_arr[i] = heap.ExtractMax();
+            }
+            arr = temp_arr;
+
+        }
         
     }
 
@@ -352,7 +368,6 @@ namespace lab_3
                 Console.Write(arr[i] + ", ");
             }
             Console.WriteLine();
-
         }
     }
 }
