@@ -520,6 +520,11 @@ namespace lab_3
             return false;
         }
 
+        public int Size()
+        {
+            return heap.SizeOfHeap;
+        }
+
     }
 
     class Program
