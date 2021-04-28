@@ -300,13 +300,29 @@ namespace lab_3
         }
     }
 
-    public class arr_List<T> where T : IComparable {
-        public T[] arr;
+    public class Array_List<T> where T : IComparable {
+        public T[] arr = new T[10];
         public int number_items;
+        public int max_size = 100;
 
+          public Array_List(){
+            number_items = 0;
+            }
+        public void AddItem(T item)
+        {
+            if (number_items < arr.Length)
+            {
+                arr[number_items] = item;
+            }
+            else
+            {
+                arr[number_items] = item;
+            }
 
-
+        }
     }
+
+    
 
 
     public class Heap_Sort<T> where T:IComparable
