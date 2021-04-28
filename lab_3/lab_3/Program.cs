@@ -540,6 +540,23 @@ namespace lab_3
             return temp.Data;
         }
 
+        public void Print_Queue()
+        {
+            Max_heap<priority_node<U>> temp_heap = new Max_heap<priority_node<U>>();
+            int n = heap.SizeOfHeap;
+            for(int i=0; i< n; i++)
+            {
+                temp_heap.insertKey(heap.HeapArray[i]);
+            }
+            string s = "";
+            for(int i=0; i<n; i++)
+            {
+                priority_node<U> temp = temp_heap.ExtractMax();
+                s += "priority: " + temp.Data_priority + " data: " + temp.Data + ", ";
+            }
+            Console.WriteLine(s);
+
+        } 
     }
 
     class Program
@@ -560,7 +577,18 @@ namespace lab_3
             array_List.Heap_sort_asc();
             array_List.Print_List();
 
+            Priority_Queue<int> queue = new Priority_Queue<int>();
+            Console.WriteLine(queue.Is_Empty());
+            queue.Enqueue(2, 45);
+            queue.Enqueue(6, 5);
+            queue.Enqueue(1, 15);
+            queue.Enqueue(3, 17);
+            queue.Enqueue(4, 19);
+            queue.Enqueue(8, 20);
 
+            Console.WriteLine("Max priority elemet is: " +queue.Dequeue_Max());
+            Console.WriteLine();
+            queue.Print_Queue();
         }
     }
 }
