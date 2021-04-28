@@ -29,10 +29,13 @@ namespace lab_3
             this.SizeOfHeap = 0;
             Console.WriteLine("Min Empty heap structure was created");
         }
-        public MinHeap(T[] arr)
+        public MinHeap(T[] arr , int number_items)
         {
-            HeapArray = arr;
-            sizeOfHeap = arr.Length;
+            this.HeapArray = new T[number_items];
+            for (int i = 0; i < number_items; i++)
+            {
+                this.insertKey(arr[i]);
+            }
         }
 
         public T PeekOfHeap()
@@ -213,14 +216,13 @@ namespace lab_3
             this.SizeOfHeap = 0;
             Console.WriteLine("Empty Max heap structure was created");
         }
-        public Max_heap(T[] arr)
+        public Max_heap(T[] arr, int number_items)
         {
-            this.HeapArray = new T[arr.Length];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                this.insertKey(arr[i]);
-            }
-            
+                this.HeapArray = new T[number_items];
+                for (int i = 0; i < number_items; i++)
+                {
+                    this.insertKey(arr[i]);
+                }
         }
 
         private int ParentByIndex(int key)
@@ -402,10 +404,18 @@ namespace lab_3
         }
         public void Heap_sort_desc()
         {
-            Max_heap<T> heap = new Max_heap<T>(arr);
+            Max_heap<T> heap = new Max_heap<T>(arr, number_items);
             for(int i=0; i < arr.Length; i++)
             {
                 arr[i] = heap.ExtractMax();
+            }
+        }
+        public void Heap_sort_asc()
+        {
+            MinHeap<T> heap = new MinHeap<T>(arr, number_items);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = heap.ExtractMin();
             }
         }
     }
@@ -445,6 +455,7 @@ namespace lab_3
             arr = temp_arr;
 
         }
+
         
     }
 
@@ -452,38 +463,6 @@ namespace lab_3
     {
         static void Main(string[] args)
         {
-            /* Heap_Sort<int> sort_ = new();
-             Console.WriteLine("Hello World!");
-             int[] arr = {45, 56,78,1,415,16,34 };
-             Console.WriteLine();
-             for (int i = 0; i < arr.Length; i++)
-             {
-                 Console.Write(arr[i] + ", ");
-             }
-             Console.WriteLine();
-             sort_.Sort_ascending(ref arr);
-             Console.WriteLine();
-             for (int i=0; i < arr.Length; i++)
-             {
-                 Console.Write(arr[i] + ", ");
-             }
-             Console.WriteLine();
-
-             int[] arr_1 = { 45, 56, 78, 1, 415, 16, 34 };
-             Console.WriteLine();
-             for (int i = 0; i < arr.Length; i++)
-             {
-                 Console.Write(arr_1[i] + ", ");
-             }
-             Console.WriteLine();
-             sort_.Sort_descending(ref arr_1);
-             Console.WriteLine();
-             for (int i = 0; i < arr.Length; i++)
-             {
-                 Console.Write(arr_1[i] + ", ");
-             }
-             Console.WriteLine();*/
-
             Array_List<int> array_List = new Array_List<int>();
             array_List.AddItem(45);
             array_List.AddItem(56);
@@ -494,6 +473,8 @@ namespace lab_3
             array_List.AddItem(34);
             array_List.Print_List();
             array_List.Heap_sort_desc();
+            array_List.Print_List();
+            array_List.Heap_sort_asc();
             array_List.Print_List();
 
 
