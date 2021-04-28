@@ -457,21 +457,52 @@ namespace lab_3
         }   
     }
 
-    class priority_node<T> where T : IComparable {
+    class priority_node<U> :IComparable where U:IComparable  {
         int data_priority;
-        T data;
-        public priority_node(int priority, T data)
+        U data;
+        public priority_node(int priority, U data)
         {
-
+            data_priority = priority;
+            this.data = data;
         }
-        public int CompareTo()
+        public int CompareTo(object o)
         {
-            if()
+            priority_node<U> node = (priority_node<U>)o;
+            if (node != null)
+            {
+                if (this.data_priority > node.data_priority)
+                {
+                    return 1;
+                }
+                if (this.data_priority < node.data_priority)
+                {
+                    return -1;
+                }
+                if (this.data_priority == node.data_priority)
+                {
+                    if (this.data.CompareTo(node.data) > 0)
+                    {
+                        return 1;
+                    }
+                    if (this.data.CompareTo(node.data) < 0)
+                    {
+                        return -1;
+                    }
+                }
+            }
+            throw new Exception("caanot be compared"); 
         }
     }
 
-    public class Priority_Queue<T> where T : IComparable
+    public class Priority_Queue<U> where U:IComparable
     {
+        Max_heap<priority_node<U>> heap = new Max_heap<priority_node<U>>();
+         public Priority_Queue(int priority, U data)
+        {
+            priority_node<U> node = new priority_node<U>(priority, data);
+            heap.insertKey(node);
+        }
+
 
     }
 
