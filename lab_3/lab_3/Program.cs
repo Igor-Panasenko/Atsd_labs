@@ -301,7 +301,7 @@ namespace lab_3
 
     }
 
-    public class Sort_Ascending<T> where T:IComparable
+    public class Heap_Sort<T> where T:IComparable
     {
      public void Sort_ascending( ref T[] arr)
         {
@@ -326,7 +326,7 @@ namespace lab_3
                 heap.insertKey(arr[i]);
             }
             T[] temp_arr = new T[heap.SizeOfHeap];
-            for(int i=0; i < heap.SizeOfHeap; i++)
+            for(int i=0; i < arr.Length; i++)
             {
                 temp_arr[i] = heap.ExtractMax();
             }
@@ -340,19 +340,8 @@ namespace lab_3
     {
         static void Main(string[] args)
         {
+            Heap_Sort<int> sort_ = new();
             Console.WriteLine("Hello World!");
-            MinHeap<int> heap= new MinHeap<int>(4);
-            heap.insertKey(45);
-            heap.insertKey(31);
-            heap.insertKey(54);
-            heap.insertKey(19);
-            heap.insertKey(34);
-            heap.PrintHeap();
-            heap.changeValueOnKey(0, 78);
-            heap.PrintHeap();
-            Console.WriteLine();
-            Console.WriteLine(heap.getMin());
-            Console.WriteLine();
             int[] arr = {45, 56,78,1,415,16,34 };
             Console.WriteLine();
             for (int i = 0; i < arr.Length; i++)
@@ -360,12 +349,26 @@ namespace lab_3
                 Console.Write(arr[i] + ", ");
             }
             Console.WriteLine();
-            Sort_Ascending<int> sort_= new();
             sort_.Sort_ascending(ref arr);
             Console.WriteLine();
             for (int i=0; i < arr.Length; i++)
             {
                 Console.Write(arr[i] + ", ");
+            }
+            Console.WriteLine();
+
+            int[] arr_1 = { 45, 56, 78, 1, 415, 16, 34 };
+            Console.WriteLine();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr_1[i] + ", ");
+            }
+            Console.WriteLine();
+            sort_.Sort_descending(ref arr_1);
+            Console.WriteLine();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr_1[i] + ", ");
             }
             Console.WriteLine();
         }
