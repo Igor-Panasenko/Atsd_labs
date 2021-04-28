@@ -298,8 +298,16 @@ namespace lab_3
                 Console.Write(HeapArray[i] + ",  ");
             }
         }
+    }
+
+    public class arr_List<T> where T : IComparable {
+        public T[] arr;
+        public int number_items;
+
+
 
     }
+
 
     public class Heap_Sort<T> where T:IComparable
     {
