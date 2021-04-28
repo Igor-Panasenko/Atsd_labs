@@ -458,8 +458,11 @@ namespace lab_3
     }
 
     class priority_node<U> :IComparable where U:IComparable  {
-        int data_priority;
-        U data;
+        private int data_priority;
+        private U data;
+        public int Data_priority { get { return data_priority; } }
+        public U Data { get { return data; } }
+
         public priority_node(int priority, U data)
         {
             data_priority = priority;
@@ -523,6 +526,18 @@ namespace lab_3
         public int Size()
         {
             return heap.SizeOfHeap;
+        }
+
+        public void Enqueue (int priority, U data)
+        {
+            priority_node<U> node = new priority_node<U>(priority, data);
+            heap.insertKey(node);
+        }
+
+        public U Dequeue_Max()
+        {
+            priority_node<U> temp = heap.ExtractMax();
+            return temp.Data;
         }
 
     }
