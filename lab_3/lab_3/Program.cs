@@ -349,6 +349,17 @@ namespace lab_3
             arr = temp_arr;
             return true;
         }
+        public bool Is_Empty()
+        {
+            if (number_items == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     
