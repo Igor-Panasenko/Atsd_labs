@@ -379,6 +379,10 @@ namespace lab_3
                 Console.Write(arr[i] + ", ");
             }
         }
+        public int Size()
+        {
+            return number_items;
+        }
     }
 
     
