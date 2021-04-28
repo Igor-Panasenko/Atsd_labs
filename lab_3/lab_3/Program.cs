@@ -457,6 +457,19 @@ namespace lab_3
         }   
     }
 
+    class priority_node<T> where T : IComparable {
+        int data_priority;
+        T data;
+        public priority_node(int priority, T data)
+        {
+
+        }
+        public int CompareTo()
+        {
+            if()
+        }
+    }
+
     public class Priority_Queue<T> where T : IComparable
     {
 
