@@ -454,9 +454,12 @@ namespace lab_3
             }
             arr = temp_arr;
 
-        }
+        }   
+    }
 
-        
+    public class Priority_Queue<T> where T : IComparable
+    {
+
     }
 
     class Program
