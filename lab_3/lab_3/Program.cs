@@ -316,9 +316,38 @@ namespace lab_3
             }
             else
             {
-                arr[number_items] = item;
+               if(increase(ref arr))
+                {
+                    arr[number_items] = item;
+                }
             }
-
+        }
+        private bool increase(ref T[] arr)
+        {
+            T[] temp_arr;
+            if (arr.Length * 2 < 100)
+            {
+                temp_arr = new T[arr.Length * 2];
+            }
+            else
+            {
+                if (arr.Length < 100)
+                {
+                    temp_arr = new T[100];
+                }
+                else
+                {
+                    Console.WriteLine("array is full");
+                    return false;
+                }
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                temp_arr[i] = arr[i];
+            }
+            
+            arr = temp_arr;
+            return true;
         }
     }
 
