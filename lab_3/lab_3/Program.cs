@@ -29,6 +29,11 @@ namespace lab_3
             this.SizeOfHeap = 0;
             Console.WriteLine("Min Empty heap structure was created");
         }
+        public MinHeap(T[] arr)
+        {
+            HeapArray = arr;
+            sizeOfHeap = arr.Length;
+        }
 
         public T PeekOfHeap()
         {
@@ -382,6 +387,10 @@ namespace lab_3
         public int Size()
         {
             return number_items;
+        }
+        public void Heap_sort_desc()
+        {
+
         }
     }
 
