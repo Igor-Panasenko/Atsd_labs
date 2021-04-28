@@ -215,6 +215,7 @@ namespace lab_3
         }
         public Max_heap(T[] arr)
         {
+            this.HeapArray = new T[arr.Length];
             for (int i = 0; i < arr.Length; i++)
             {
                 this.insertKey(arr[i]);
@@ -326,12 +327,14 @@ namespace lab_3
             if (number_items < arr.Length)
             {
                 arr[number_items] = item;
+                number_items++;
             }
             else
             {
                if(increase(ref arr))
                 {
                     arr[number_items] = item;
+                    number_items++;
                 }
             }
         }
@@ -391,6 +394,7 @@ namespace lab_3
             {
                 Console.Write(arr[i] + ", ");
             }
+            Console.WriteLine();
         }
         public int Size()
         {
@@ -448,37 +452,51 @@ namespace lab_3
     {
         static void Main(string[] args)
         {
-            Heap_Sort<int> sort_ = new();
-            Console.WriteLine("Hello World!");
-            int[] arr = {45, 56,78,1,415,16,34 };
-            Console.WriteLine();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write(arr[i] + ", ");
-            }
-            Console.WriteLine();
-            sort_.Sort_ascending(ref arr);
-            Console.WriteLine();
-            for (int i=0; i < arr.Length; i++)
-            {
-                Console.Write(arr[i] + ", ");
-            }
-            Console.WriteLine();
+            /* Heap_Sort<int> sort_ = new();
+             Console.WriteLine("Hello World!");
+             int[] arr = {45, 56,78,1,415,16,34 };
+             Console.WriteLine();
+             for (int i = 0; i < arr.Length; i++)
+             {
+                 Console.Write(arr[i] + ", ");
+             }
+             Console.WriteLine();
+             sort_.Sort_ascending(ref arr);
+             Console.WriteLine();
+             for (int i=0; i < arr.Length; i++)
+             {
+                 Console.Write(arr[i] + ", ");
+             }
+             Console.WriteLine();
 
-            int[] arr_1 = { 45, 56, 78, 1, 415, 16, 34 };
-            Console.WriteLine();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write(arr_1[i] + ", ");
-            }
-            Console.WriteLine();
-            sort_.Sort_descending(ref arr_1);
-            Console.WriteLine();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write(arr_1[i] + ", ");
-            }
-            Console.WriteLine();
+             int[] arr_1 = { 45, 56, 78, 1, 415, 16, 34 };
+             Console.WriteLine();
+             for (int i = 0; i < arr.Length; i++)
+             {
+                 Console.Write(arr_1[i] + ", ");
+             }
+             Console.WriteLine();
+             sort_.Sort_descending(ref arr_1);
+             Console.WriteLine();
+             for (int i = 0; i < arr.Length; i++)
+             {
+                 Console.Write(arr_1[i] + ", ");
+             }
+             Console.WriteLine();*/
+
+            Array_List<int> array_List = new Array_List<int>();
+            array_List.AddItem(45);
+            array_List.AddItem(56);
+            array_List.AddItem(78);
+            array_List.AddItem(1);
+            array_List.AddItem(415);
+            array_List.AddItem(16);
+            array_List.AddItem(34);
+            array_List.Print_List();
+            array_List.Heap_sort_desc();
+            array_List.Print_List();
+
+
         }
     }
 }
