@@ -371,6 +371,14 @@ namespace lab_3
                 return false;
             }
         }
+        public void Print_List()
+        {
+            Console.WriteLine();
+            for(int i=0; i<number_items; i++)
+            {
+                Console.Write(arr[i] + ", ");
+            }
+        }
     }
 
     
