@@ -502,7 +502,23 @@ namespace lab_3
             priority_node<U> node = new priority_node<U>(priority, data);
             heap.insertKey(node);
         }
-
+        public Priority_Queue()
+        {
+            
+        }
+        public bool Is_full()
+        {
+            Console.WriteLine("heap has infinite number of data in it");
+            return false;
+        }
+        public bool Is_Empty()
+        {
+            if (heap.SizeOfHeap == 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 
