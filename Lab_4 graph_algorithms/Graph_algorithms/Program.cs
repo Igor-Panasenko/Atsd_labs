@@ -46,7 +46,60 @@ namespace Graph_algorithms
         int[] Adjacency_matrix;
  public WeightedGraph()
         {
+            Console.WriteLine("Hello, write number of edges and \n number of vertices in your graph");
+            string str= Console.ReadLine();
+            string part_str="";
+            int V;
+            int E;
+            int te = 0;
+            while (str[te] != ',')
+            {
+                part_str += str[te];
+                te++;
+            }
+            E = Convert.ToInt32(part_str);
+            part_str = "";
+            te++;
+            while (te < str.Length)
+            {
+                part_str += str;
+                te++;
+            }
+            V = Convert.ToInt32(part_str);
 
+            if (V + 2 > E)
+            {
+                throw new ArgumentException("hello, not ok");
+            }
+            this.V = V;
+            this.E = E;
+            this.edge = new Edge<T>[E];
+            int max_number = V + 2;
+            int number = 0;
+            while (number != E)
+            {
+                Console.WriteLine("Write from start and destination number for vertex");
+                str=Console.ReadLine();
+                te = 0;
+                part_str = "";
+                while (str[te] != ',')
+                {
+                    part_str += str[te];
+                    te++;
+                }
+                int from = Convert.ToInt32(part_str);
+                part_str = "";
+                te++;
+                while (te < str.Length)
+                {
+                    part_str += str;
+                    te++;
+                }
+                int to = Convert.ToInt32(part_str);
+                Console.WriteLine("write weight of this vertex");
+                int weight= Convert.ToInt32(Console.ReadLine());
+                Edge
+            }
         }
         public WeightedGraph(int v, int e)
         {
