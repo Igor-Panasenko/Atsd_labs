@@ -31,6 +31,11 @@ namespace Graph_algorithms
         {
             public int parent;
             public int rank;
+            public subset()
+            {
+                parent = 0;
+                rank = 0;
+            }
         }
 
        private int V;
@@ -81,15 +86,16 @@ namespace Graph_algorithms
         {
             Edge<T>[] result = new Edge<T>[this.V];
             int e = 0;
-            int i = 0;
-            for(i=0; i<V; ++i)
+            for(int i=0; i<V; ++i)
             {
                 result[i] = new Edge<T>();
             }
             Edge<T>[] copy = new Edge<T>[this.edge.Length];
             for(int j=0; j<this.edge.Length; j++)
             {
-                copy[i] = edge[i];
+                copy[j].weight= edge[j].weight;
+                copy[j].src = edge[j].src;
+                copy[j].dest = edge[j].dest;
             }
             for(int j=0; j<copy.Length; j++)
             {
@@ -102,6 +108,11 @@ namespace Graph_algorithms
                         copy[k] = temp;
                     }
                 }
+            }
+            subset[] subsets = new subset[this.V];
+            for(int i=0; i<V; i++)
+            {
+                subsets[i] = new subset();
             }
         }
 
