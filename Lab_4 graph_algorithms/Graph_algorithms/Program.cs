@@ -8,6 +8,12 @@ namespace Graph_algorithms
             public int dest;
             public T weight;
 
+            public Edge()
+            {
+                src = 0;
+                dest = 0;
+                weight = default(T);
+            }
             public int CompareTo(Edge<T> comparerEdge)
             {
                 if (this.weight.CompareTo(comparerEdge.weight) > 0)
@@ -71,7 +77,16 @@ namespace Graph_algorithms
                 }
             }
         }
-        public 
+        public void KruskalsMST()
+        {
+            Edge<T>[] result = new Edge<T>[this.V];
+            int e = 0;
+            int i = 0;
+            for(i=0; i<V; ++i)
+            {
+                result[i] = new Edge<T>();
+            }
+        }
 
     }
 
