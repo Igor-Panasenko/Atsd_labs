@@ -2,8 +2,10 @@
 
 namespace Graph_algorithms
 {
-    class WeightedGraph<T> where T : IComparable {
-        private class Edge<T> : IComparable<Edge<T>> where T : IComparable {
+    public class WeightedGraph<T> where T : IComparable
+    {
+        public class Edge<T> : IComparable<Edge<T>> where T : IComparable
+        {
             public int src;
             public int dest;
             public T weight;
@@ -38,21 +40,21 @@ namespace Graph_algorithms
             }
         }
 
-       private int V;
-       private int E;
-       private Edge<T>[] edge;
+        private int V;
+        private int E;
+        public Edge<T>[] edge;
 
-       public WeightedGraph(int v, int e)
+        public WeightedGraph(int v, int e)
         {
             this.V = v;
             this.E = e;
             this.edge = new Edge<T>[E];
-            for(int i=0; i<e; i++)
+            for (int i = 0; i < e; i++)
             {
                 edge[i] = new Edge<T>();
             }
         }
-        private int find (subset[] subsets, int i)
+        private int find(subset[] subsets, int i)
         {
             if (subsets[i].parent != i)
             {
@@ -84,22 +86,26 @@ namespace Graph_algorithms
         }
         public void KruskalsMST()
         {
-            Edge<T>[] result = new Edge<T>[this.V];
+            Edge<T>[] result = new Edge<T>[this.V];    //массив где хранится результирующее МСТ
             int e = 0;
-            for(int i=0; i<V; ++i)
+            for (int i = 0; i < V; ++i)
             {
-                result[i] = new Edge<T>();
+                result[i] = new Edge<T>();                 //заполнили результат дефолтными полями 
             }
             Edge<T>[] copy = new Edge<T>[this.edge.Length];
-            for(int j=0; j<this.edge.Length; j++)
+            for (int i = 0; i < this.edge.Length; ++i)
             {
-                copy[j].weight= edge[j].weight;
+                copy[i] = new Edge<T>();                
+            }
+            for (int j = 0; j < this.edge.Length; j++)
+            {
+                copy[j].weight = edge[j].weight;
                 copy[j].src = edge[j].src;
                 copy[j].dest = edge[j].dest;
             }
-            for(int j=0; j<copy.Length; j++)
+            for (int j = 0; j < copy.Length; j++)
             {
-                for(int k=j; k<copy.Length; k++)
+                for (int k = j; k < copy.Length; k++)
                 {
                     if (copy[j].CompareTo(copy[k]) > 0)
                     {
@@ -110,19 +116,19 @@ namespace Graph_algorithms
                 }
             }
             subset[] subsets = new subset[this.V];
-            for(int i=0; i<V; i++)
+            for (int i = 0; i < V; i++)
             {
                 subsets[i] = new subset();
             }
-            for(int v=0; v<V; v++)
+            for (int v = 0; v < V; v++)
             {
                 subsets[v].parent = v;
                 subsets[v].rank = 0;
             }
-            int next=0;
+            int next = 0;
             while (e < V - 1)
             {
-                Edge<T> next_edge = copy[next++];
+                Edge<T> next_edge = copy[next];
                 int x = find(subsets, next_edge.src);
                 int y = find(subsets, next_edge.dest);
 
@@ -131,10 +137,11 @@ namespace Graph_algorithms
                     result[e++] = next_edge;
                     this.union(subsets, x, y);
                 }
+                next++;
             }
-            Console.WriteLine("Following are edges in the construxted MST");
+            Console.WriteLine("Following are edges in the constructed MST");
             T minCost;
-            for(int i=0; i<e; ++i)
+            for (int i = 0; i < e; ++i)
             {
                 Console.WriteLine(result[i].src + " -- " + result[i].dest + " == " + result[i].weight);
             }
@@ -148,6 +155,31 @@ namespace Graph_algorithms
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            WeightedGraph<int> graph = new WeightedGraph<int>(4, 5);
+            graph.edge[0].src = 0;
+            graph.edge[0].dest = 1;
+            graph.edge[0].weight = 10;
+
+            // add edge 0-2
+            graph.edge[1].src = 0;
+            graph.edge[1].dest = 2;
+            graph.edge[1].weight = 6;
+
+            // add edge 0-3
+            graph.edge[2].src = 0;
+            graph.edge[2].dest = 3;
+            graph.edge[2].weight = 5;
+
+            // add edge 1-3
+            graph.edge[3].src = 1;
+            graph.edge[3].dest = 3;
+            graph.edge[3].weight = 15;
+
+            // add edge 2-3
+            graph.edge[4].src = 2;
+            graph.edge[4].dest = 3;
+            graph.edge[4].weight = 4;
+            graph.KruskalsMST();
         }
     }
 }
