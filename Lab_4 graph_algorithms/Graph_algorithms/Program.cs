@@ -234,6 +234,45 @@ namespace Graph_algorithms
 
         public void dijkstra(int start)
         {
+            int No_Parent = -1;
+            int[] shortestDistances = new int[V];
+            bool[] added = new bool[V];
+            for(int i=0; i<V; i++)
+            {
+                shortestDistances[i] = int.MaxValue;
+                added[i] = false;
+            }
+            shortestDistances[start] = 0;
+            int[] parents = new int[V];
+            parents[start] = No_Parent;
+            for(int i=0; i<V; i++)
+            {
+                int nearestVertex = -1;
+                int shortestDistance = int.MaxValue;
+                for(int vertexIndex=0; vertexIndex<V; vertexIndex++)
+                {
+                    if(!added[vertexIndex] && shortestDistances[vertexIndex] < shortestDistance)
+                    {
+                        nearestVertex = vertexIndex;
+                        shortestDistance = shortestDistances[vertexIndex];
+                    }
+                }
+                added[nearestVertex] = true;
+                for(int vertexIndex=0; vertexIndex<V; vertexIndex++)
+                {
+                    int edgeDistance = this.Adjacency_matrix[nearestVertex, vertexIndex];
+                    if (edgeDistance > 0 && ((shortestDistance + edgeDistance) < shortestDistances[vertexIndex])){
+                        parents[vertexIndex] = nearestVertex;
+                        shortestDistances[vertexIndex] = shortestDistance + edgeDistance;
+
+                    }
+                }
+
+            }
+            print_Solution(start, shortestDistances, parents);
+        }
+        private void print_Solution(int start, int[] distances, int[] parents)
+        {
 
         }
 
