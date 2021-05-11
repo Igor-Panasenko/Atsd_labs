@@ -43,7 +43,11 @@ namespace Graph_algorithms
         private int V;
         private int E;
         public Edge<T>[] edge;
+        int[] Adjacency_matrix;
+ public WeightedGraph()
+        {
 
+        }
         public WeightedGraph(int v, int e)
         {
             this.V = v;
