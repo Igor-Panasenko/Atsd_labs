@@ -21,6 +21,12 @@ namespace Graph_algorithms
                 return 0;
             }
         }
+        public class subset<T> where T:IComparable
+        {
+           public T parent;
+           public int rank;
+        }
+
 
     }
 
