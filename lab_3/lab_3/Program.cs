@@ -2,7 +2,6 @@
 
 namespace lab_3
 {
-
     class MinHeap<T> where T : IComparable {
 
         public T[] HeapArray;
@@ -46,7 +45,7 @@ namespace lab_3
             }
             else
             {
-                return HeapArray[1];
+                return HeapArray[0];
             }
         }
 
@@ -340,6 +339,24 @@ namespace lab_3
                 }
             }
         }
+
+     /*public void add_Array(T[] new_arr)
+        {
+            if (number_items < arr.Length)
+            {
+                arr[number_items] = new_arr;
+                number_items++;
+            }
+            else
+            {
+                if (increase(ref arr))
+                {
+                    arr[number_items] = new_arr;
+                    number_items++;
+                }
+            }
+
+        }*/
         private bool increase(ref T[] arr)
         {
             T[] temp_arr;
@@ -402,7 +419,7 @@ namespace lab_3
         {
             return number_items;
         }
-        public void Heap_sort_desc()
+        public void Heap_sort_desc() // сортировка по убыванию
         {
             Max_heap<T> heap = new Max_heap<T>(arr, number_items);
             for(int i=0; i < arr.Length; i++)
@@ -410,7 +427,7 @@ namespace lab_3
                 arr[i] = heap.ExtractMax();
             }
         }
-        public void Heap_sort_asc()
+        public void Heap_sort_asc() //сортировка по возрастанию
         {
             MinHeap<T> heap = new MinHeap<T>(arr, number_items);
             for (int i = 0; i < arr.Length; i++)
@@ -491,6 +508,10 @@ namespace lab_3
                     {
                         return -1;
                     }
+                    if (this.data.CompareTo(node.data) == 0)
+                    {
+                        return 0;
+                    }
                 }
             }
             throw new Exception("caanot be compared"); 
@@ -563,6 +584,7 @@ namespace lab_3
     {
         static void Main(string[] args)
         {
+            //creating new List class
             Array_List<int> array_List = new Array_List<int>();
             array_List.AddItem(45);
             array_List.AddItem(56);
@@ -572,11 +594,16 @@ namespace lab_3
             array_List.AddItem(16);
             array_List.AddItem(34);
             array_List.Print_List();
+            //calling method heapSort for descending for List
             array_List.Heap_sort_desc();
+            //Printing List
             array_List.Print_List();
+            //calling method heapsort for ascending sort
             array_List.Heap_sort_asc();
             array_List.Print_List();
 
+
+            //additional problem
             Priority_Queue<int> queue = new Priority_Queue<int>();
             Console.WriteLine(queue.Is_Empty());
             queue.Enqueue(2, 45);
@@ -586,7 +613,7 @@ namespace lab_3
             queue.Enqueue(4, 19);
             queue.Enqueue(8, 20);
 
-            Console.WriteLine("Max priority elemet is: " +queue.Dequeue_Max());
+            Console.WriteLine("Max priority elemet is dequed: " +queue.Dequeue_Max());
             Console.WriteLine();
             queue.Print_Queue();
         }
