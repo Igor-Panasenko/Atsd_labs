@@ -288,7 +288,12 @@ namespace Graph_algorithms
         }
         private void printPath(int current, int[] parents)
         {
-
+            if (current == -1)
+            {
+                return;
+            }
+            printPath(parents[current], parents);
+            Console.Write(current + " ");
         }
 
     }
