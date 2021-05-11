@@ -122,6 +122,19 @@ namespace Graph_algorithms
                 edge[i] = new Edge();
             }
         }
+
+        public void print_graph()
+        {
+            string answer = "";
+            for(int i=0; i<V; i++)
+            {
+                for(int j=0; j<V; j++)
+                {
+                    answer += Adjacency_matrix[i, j];
+                }
+                answer += "\n";
+            }
+        }
         private int find(subset[] subsets, int i)
         {
             if (subsets[i].parent != i)
@@ -208,11 +221,13 @@ namespace Graph_algorithms
                 next++;
             }
             Console.WriteLine("Following are edges in the constructed MST");
-            int minCost;
+            int minCost=0;
             for (int i = 0; i < e; ++i)
             {
                 Console.WriteLine(result[i].src + " -- " + result[i].dest + " == " + result[i].weight);
+                minCost += result[i].weight;
             }
+            Console.WriteLine("Minimum Cost Spanning Tree" + minCost);
             Console.ReadLine();
         }
 
