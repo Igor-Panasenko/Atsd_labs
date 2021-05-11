@@ -7,6 +7,19 @@ namespace Graph_algorithms
             public int src;
             public int dest;
             public T weight;
+
+            public int CompareTo(Edge<T> comparerEdge)
+            {
+                if (this.weight.CompareTo(comparerEdge.weight) > 0)
+                {
+                    return 1;
+                }
+                if (this.weight.CompareTo(comparerEdge.weight) < 0)
+                {
+                    return -1;
+                }
+                return 0;
+            }
         }
 
     }
