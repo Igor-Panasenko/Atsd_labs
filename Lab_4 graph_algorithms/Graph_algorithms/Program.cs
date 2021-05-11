@@ -232,6 +232,11 @@ namespace Graph_algorithms
             Console.ReadLine();
         }
 
+        public void dijkstra(int start)
+        {
+
+        }
+
     }
 
     class Program
