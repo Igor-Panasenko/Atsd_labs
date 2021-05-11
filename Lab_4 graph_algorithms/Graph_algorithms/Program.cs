@@ -29,6 +29,18 @@ namespace Graph_algorithms
 
        private int V;
        private int E;
+       private Edge<T>[] edge;
+
+       public WeightedGraph(int v, int e)
+        {
+            this.V = v;
+            this.E = e;
+            this.edge = new Edge<T>[E];
+            for(int i=0; i<e; i++)
+            {
+                edge[i] = new Edge<T>();
+            }
+        }
 
     }
 
