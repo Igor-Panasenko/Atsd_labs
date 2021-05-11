@@ -47,13 +47,13 @@ namespace Graph_algorithms
             }
         }
 
-        private int V;
-        private int E;
+        private int V;          //вершины
+        private int E;          //ребра
         public Edge[] edge;
         int[,] Adjacency_matrix;
  public WeightedGraph()
         {
-            Console.WriteLine("Hello, write number of edges and \n number of vertices in your graph");
+            Console.WriteLine("Hello, write number of vertices and \nnumber of edges in your graph");
             string str= Console.ReadLine();
             string part_str="";
             int V;
@@ -64,24 +64,20 @@ namespace Graph_algorithms
                 part_str += str[te];
                 te++;
             }
-            E = Convert.ToInt32(part_str);
+            V = Convert.ToInt32(part_str);
             part_str = "";
             te++;
             while (te < str.Length)
             {
-                part_str += str;
+                part_str += str[te];
                 te++;
             }
-            V = Convert.ToInt32(part_str);
+            E = Convert.ToInt32(part_str);
 
-            if (V + 2 > E)
-            {
-                throw new ArgumentException("hello, not ok");
-            }
             this.V = V;
             this.E = E;
             this.edge = new Edge[E];
-            int max_number = V + 2;
+            this.Adjacency_matrix = new int[V, V];
             int number = 0;
             while (number != E)
             {
@@ -100,23 +96,20 @@ namespace Graph_algorithms
                 te++;
                 while (te < str.Length)
                 {
-                    part_str += str;
+                    part_str += str[te];
                     te++;
                 }
                 int to = Convert.ToInt32(part_str);
                 Console.WriteLine("write weight of this vertex");
                 int weight= Convert.ToInt32(Console.ReadLine());
                 edge[number] = new Edge(from, to, weight);
-                Console.WriteLine("if you want to end, press'#'");
-                string for_break = Console.ReadLine();
-                if (for_break == "#")
-                {
-                    break;
-                }
-                for(int i=0; i<edge.Length; i++)
-                {
-                    Adjacency_matrix[edge[i].src, edge[i].dest] = edge[i].weight;
-                }
+                number++;
+                Console.Clear();
+            }
+            for (int i = 0; i < edge.Length; i++)
+            {
+                Adjacency_matrix[edge[i].src, edge[i].dest] = edge[i].weight;
+                Adjacency_matrix[edge[i].dest, edge[i].src] = edge[i].weight;
             }
         }
         public WeightedGraph(int v, int e)
@@ -215,7 +208,7 @@ namespace Graph_algorithms
                 next++;
             }
             Console.WriteLine("Following are edges in the constructed MST");
-            T minCost;
+            int minCost;
             for (int i = 0; i < e; ++i)
             {
                 Console.WriteLine(result[i].src + " -- " + result[i].dest + " == " + result[i].weight);
@@ -230,7 +223,8 @@ namespace Graph_algorithms
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            WeightedGraph<int> graph = new WeightedGraph<int>(4, 5);
+            WeightedGraph<int> graph = new WeightedGraph<int>();
+            /*WeightedGraph<int> graph = new WeightedGraph<int>(4, 5);
             graph.edge[0].src = 0;
             graph.edge[0].dest = 1;
             graph.edge[0].weight = 10;
@@ -253,7 +247,7 @@ namespace Graph_algorithms
             // add edge 2-3
             graph.edge[4].src = 2;
             graph.edge[4].dest = 3;
-            graph.edge[4].weight = 4;
+            graph.edge[4].weight = 4;*/
             graph.KruskalsMST();
         }
     }
