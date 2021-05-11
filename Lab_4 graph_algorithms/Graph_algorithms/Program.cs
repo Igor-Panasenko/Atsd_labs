@@ -50,6 +50,29 @@ namespace Graph_algorithms
             return subsets[i].parent;
         }
 
+        private void union(subset[] subsets, int x, int y)
+        {
+            int xRoot = find(subsets, x);
+            int yRoot = find(subsets, y);
+            if (subsets[xRoot].rank < subsets[yRoot].rank)
+            {
+                subsets[xRoot].parent = yRoot;
+            }
+            else
+            {
+                if (subsets[xRoot].rank > subsets[yRoot].rank)
+                {
+                    subsets[yRoot].parent = xRoot;
+                }
+                else
+                {
+                    subsets[yRoot].parent = xRoot;
+                    subsets[xRoot].rank++;
+                }
+            }
+        }
+        public 
+
     }
 
     class Program
