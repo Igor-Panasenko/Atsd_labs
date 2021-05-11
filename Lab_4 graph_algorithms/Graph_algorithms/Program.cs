@@ -86,6 +86,23 @@ namespace Graph_algorithms
             {
                 result[i] = new Edge<T>();
             }
+            Edge<T>[] copy = new Edge<T>[this.edge.Length];
+            for(int j=0; j<this.edge.Length; j++)
+            {
+                copy[i] = edge[i];
+            }
+            for(int j=0; j<copy.Length; j++)
+            {
+                for(int k=j; k<copy.Length; k++)
+                {
+                    if (copy[j].CompareTo(copy[k]) > 0)
+                    {
+                        Edge<T> temp = copy[j];
+                        copy[j] = copy[k];
+                        copy[k] = temp;
+                    }
+                }
+            }
         }
 
     }
