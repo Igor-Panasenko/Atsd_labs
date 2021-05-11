@@ -273,6 +273,21 @@ namespace Graph_algorithms
         }
         private void print_Solution(int start, int[] distances, int[] parents)
         {
+            int nVertices = distances.Length;
+            Console.Write("Vertex\t Distance \tPath");
+            for(int vertexIndex=0; vertexIndex<nVertices; vertexIndex++)
+            {
+                if (vertexIndex != start)
+                {
+                    Console.Write("\n"+start+"-->");
+                    Console.Write(vertexIndex + " \t\t ");
+                    Console.Write(distances[vertexIndex] + " \t\t ");
+                    printPath(vertexIndex, parents);
+                }
+            }
+        }
+        private void printPath(int current, int[] parents)
+        {
 
         }
 
