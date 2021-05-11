@@ -232,8 +232,15 @@ namespace Graph_algorithms
             Console.ReadLine();
         }
 
-        public void dijkstra(int start)
+        public void dijkstra()
         {
+            Console.WriteLine("write number of start vertex but < " + V);
+            int start =Convert.ToInt32(Console.ReadLine());
+            if (start >= V)
+            {
+                Console.WriteLine("error, too big number. \nnumbers of vertices starts with 0");
+                return;
+            }
             int No_Parent = -1;
             int[] shortestDistances = new int[V];
             bool[] added = new bool[V];
@@ -330,6 +337,7 @@ namespace Graph_algorithms
             graph.edge[4].weight = 4;*/
             graph.print_graph();
             graph.KruskalsMST();
+            graph.dijkstra();
         }
     }
 }
