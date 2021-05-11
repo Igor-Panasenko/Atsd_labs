@@ -114,6 +114,31 @@ namespace Graph_algorithms
             {
                 subsets[i] = new subset();
             }
+            for(int v=0; v<V; v++)
+            {
+                subsets[v].parent = v;
+                subsets[v].rank = 0;
+            }
+            int next=0;
+            while (e < V - 1)
+            {
+                Edge<T> next_edge = copy[next++];
+                int x = find(subsets, next_edge.src);
+                int y = find(subsets, next_edge.dest);
+
+                if (x != y)
+                {
+                    result[e++] = next_edge;
+                    this.union(subsets, x, y);
+                }
+            }
+            Console.WriteLine("Following are edges in the construxted MST");
+            T minCost;
+            for(int i=0; i<e; ++i)
+            {
+                Console.WriteLine(result[i].src + " -- " + result[i].dest + " == " + result[i].weight);
+            }
+            Console.ReadLine();
         }
 
     }
