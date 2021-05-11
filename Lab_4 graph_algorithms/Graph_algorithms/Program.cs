@@ -130,10 +130,11 @@ namespace Graph_algorithms
             {
                 for(int j=0; j<V; j++)
                 {
-                    answer += Adjacency_matrix[i, j];
+                    answer += Adjacency_matrix[i, j]+"   ";
                 }
                 answer += "\n";
             }
+            Console.WriteLine(answer);
         }
         private int find(subset[] subsets, int i)
         {
@@ -227,7 +228,7 @@ namespace Graph_algorithms
                 Console.WriteLine(result[i].src + " -- " + result[i].dest + " == " + result[i].weight);
                 minCost += result[i].weight;
             }
-            Console.WriteLine("Minimum Cost Spanning Tree" + minCost);
+            Console.WriteLine("Minimum Cost Spanning Tree = " + minCost);
             Console.ReadLine();
         }
 
@@ -263,6 +264,7 @@ namespace Graph_algorithms
             graph.edge[4].src = 2;
             graph.edge[4].dest = 3;
             graph.edge[4].weight = 4;*/
+            graph.print_graph();
             graph.KruskalsMST();
         }
     }
