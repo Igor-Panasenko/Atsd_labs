@@ -21,9 +21,9 @@ namespace Graph_algorithms
                 return 0;
             }
         }
-        public class subset<T> where T : IComparable
+        public class subset
         {
-            public T parent;
+            public int parent;
             public int rank;
         }
 
@@ -40,6 +40,14 @@ namespace Graph_algorithms
             {
                 edge[i] = new Edge<T>();
             }
+        }
+        private int find (subset[] subsets, int i)
+        {
+            if (subsets[i].parent != i)
+            {
+                subsets[i].parent = find(subsets, subsets[i].parent);
+            }
+            return subsets[i].parent;
         }
 
     }
