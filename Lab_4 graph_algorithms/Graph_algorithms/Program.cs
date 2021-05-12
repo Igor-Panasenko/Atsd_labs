@@ -52,7 +52,7 @@ namespace Graph_algorithms
         private int V;          //вершины
         private int E;          //ребра
         public Edge[] edge;
-        int[,] Adjacency_matrix;
+        public int[,] Adjacency_matrix;
  public WeightedGraph()
         {
             Console.WriteLine("Hello, write number of vertices and \nnumber of edges in your graph");
@@ -123,11 +123,7 @@ namespace Graph_algorithms
             {
                 edge[i] = new Edge();
             }
-            for (int i = 0; i < edge.Length; i++)
-            {
-                Adjacency_matrix[edge[i].src, edge[i].dest] = edge[i].weight;
-                Adjacency_matrix[edge[i].dest, edge[i].src] = edge[i].weight;
-            }
+            this.Adjacency_matrix = new int[V, V];
         }
 
         public void print_graph()
@@ -314,20 +310,20 @@ namespace Graph_algorithms
 
         public void Prim_Sll()
         {
-            SortedList parent = new SortedList(); 
+            int[] parent = new int[V]; 
            // SortedList<int> parent = new SortedList<int>();
-            SortedList key = new SortedList();
-            List<bool> mstSet = new List<bool>();
+            int[] key = new int[V];
+            bool[] mstSet = new bool[V];
             for(int i=0; i<this.V; ++i)
             {
                 key[i] = int.MaxValue;
-                mstSet[i] = false;
+                mstSet[i]= false;
             }
             key[0] = 0;
             parent[0] = -1;
             for(int count=0; count<V-1; ++count)
             {
-                int u = MinKey(mstSet);
+                int u = MinKey(mstSet, key);
                 mstSet[u] = true;
                 for(int v=0; v<this.V; ++v)
                 {
@@ -338,20 +334,30 @@ namespace Graph_algorithms
                     }
                 }
             }
+            Print_MST(parent);
+            
         }
-        private int MinKey (List<bool> set)
+        private int MinKey ( bool[] set, int[] key)
         {
           
             int minindex = 0;
             for(int v=0; v<this.V; ++v)
             {
-                if (set[v] == false)
+                if (set[v] == false && minindex> key[v])
                 {
                     minindex = v;
                     break;
                 }
             }
             return minindex;
+        }
+        private void Print_MST (int[] parent)
+        {
+            Console.WriteLine("Edge     Weight");
+            for(int i=0; i<this.V; ++i)
+            {
+                Console.WriteLine(parent[i] + " - " + i + "   " + Adjacency_matrix[i,(int)parent[i]]);
+            }
         }
     }
 
@@ -360,8 +366,8 @@ namespace Graph_algorithms
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            WeightedGraph<int> graph = new WeightedGraph<int>();
-            /*WeightedGraph<int> graph = new WeightedGraph<int>(4, 5);
+           // WeightedGraph<int> graph = new WeightedGraph<int>();
+            WeightedGraph<int> graph = new WeightedGraph<int>(4, 5);
             graph.edge[0].src = 0;
             graph.edge[0].dest = 1;
             graph.edge[0].weight = 10;
@@ -384,10 +390,21 @@ namespace Graph_algorithms
             // add edge 2-3
             graph.edge[4].src = 2;
             graph.edge[4].dest = 3;
-            graph.edge[4].weight = 4;*/
+            graph.edge[4].weight = 4;
+            for (int i = 0; i < graph.edge.Length; i++)
+            {
+               graph.Adjacency_matrix[graph.edge[i].src, graph.edge[i].dest] = graph.edge[i].weight;
+                graph.Adjacency_matrix[graph.edge[i].dest, graph.edge[i].src] = graph.edge[i].weight;
+            }
+
+
+
+
             graph.print_graph();
             graph.KruskalsMST();
             graph.dijkstra();
+            Console.WriteLine();
+            graph.Prim_Sll();
         }
     }
 }
