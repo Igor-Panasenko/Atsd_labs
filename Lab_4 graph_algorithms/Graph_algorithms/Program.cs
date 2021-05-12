@@ -49,8 +49,8 @@ namespace Graph_algorithms
             }
         }
 
-        private int V;          //вершины
-        private int E;          //ребра
+        private int V;          //количество вершины
+        private int E;          // количество ребра
         public Edge[] edge;
         public int[,] Adjacency_matrix;
  public WeightedGraph()
