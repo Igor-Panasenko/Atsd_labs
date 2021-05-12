@@ -121,6 +121,11 @@ namespace Graph_algorithms
             {
                 edge[i] = new Edge();
             }
+            for (int i = 0; i < edge.Length; i++)
+            {
+                Adjacency_matrix[edge[i].src, edge[i].dest] = edge[i].weight;
+                Adjacency_matrix[edge[i].dest, edge[i].src] = edge[i].weight;
+            }
         }
 
         public void print_graph()
