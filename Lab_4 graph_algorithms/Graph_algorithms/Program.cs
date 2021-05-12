@@ -310,8 +310,7 @@ namespace Graph_algorithms
 
         public void Prim_Sll()
         {
-            int[] parent = new int[V]; 
-           // SortedList<int> parent = new SortedList<int>();
+            int[] parent = new int[V];
             int[] key = new int[V];
             bool[] mstSet = new bool[V];
             for(int i=0; i<this.V; ++i)
@@ -321,13 +320,13 @@ namespace Graph_algorithms
             }
             key[0] = 0;
             parent[0] = -1;
-            for(int count=0; count<V-1; ++count)
+            for(int count=0; count<this.V-1; count++)
             {
                 int u = MinKey(mstSet, key);
                 mstSet[u] = true;
                 for(int v=0; v<this.V; ++v)
                 {
-                    if(Convert.ToBoolean(Adjacency_matrix[u,v]) && mstSet[v]==false && Adjacency_matrix[u, v] <(int) key[v])
+                    if(Adjacency_matrix[u,v]!=0 && mstSet[v]==false && Adjacency_matrix[u, v] <key[v])
                     {
                         parent[v] = u;
                         key[v] = Adjacency_matrix[u, v];
@@ -339,25 +338,29 @@ namespace Graph_algorithms
         }
         private int MinKey ( bool[] set, int[] key)
         {
-          
-            int minindex = 0;
+            int min = int.MaxValue; 
+            int minindex = -1;
             for(int v=0; v<this.V; ++v)
             {
-                if (set[v] == false && minindex> key[v])
+                if (set[v] == false && key[v]<min)
                 {
                     minindex = v;
-                    break;
+                    min = key[v];
+                    
                 }
             }
             return minindex;
         }
         private void Print_MST (int[] parent)
         {
+            int Sum_MST = 0;
             Console.WriteLine("Edge     Weight");
-            for(int i=0; i<this.V; ++i)
+            for(int i=1; i<this.V; ++i)
             {
-                Console.WriteLine(parent[i] + " - " + i + "   " + Adjacency_matrix[i,(int)parent[i]]);
+                Sum_MST += Adjacency_matrix[i, (int)parent[i]];
+                Console.WriteLine(parent[i] + " - " + i + "   " + Adjacency_matrix[i, (int)parent[i]]);
             }
+            Console.WriteLine("Sum weights of MST == " + Sum_MST);
         }
     }
 
