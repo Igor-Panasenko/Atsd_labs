@@ -300,6 +300,7 @@ namespace Graph_algorithms
                 }
             }
         }
+
         private void printPath(int current, int[] parents)
         {
             if (current == -1)
@@ -309,9 +310,48 @@ namespace Graph_algorithms
             printPath(parents[current], parents);
             Console.Write(current + " ");
         }
+        //дополнительное задание
+
         public void Prim_Sll()
         {
-             
+            SortedList parent = new SortedList(); 
+           // SortedList<int> parent = new SortedList<int>();
+            SortedList key = new SortedList();
+            List<bool> mstSet = new List<bool>();
+            for(int i=0; i<this.V; ++i)
+            {
+                key[i] = int.MaxValue;
+                mstSet[i] = false;
+            }
+            key[0] = 0;
+            parent[0] = -1;
+            for(int count=0; count<V-1; ++count)
+            {
+                int u = MinKey(mstSet);
+                mstSet[u] = true;
+                for(int v=0; v<this.V; ++v)
+                {
+                    if(Convert.ToBoolean(Adjacency_matrix[u,v]) && mstSet[v]==false && Adjacency_matrix[u, v] <(int) key[v])
+                    {
+                        parent[v] = u;
+                        key[v] = Adjacency_matrix[u, v];
+                    }
+                }
+            }
+        }
+        private int MinKey (List<bool> set)
+        {
+          
+            int minindex = 0;
+            for(int v=0; v<this.V; ++v)
+            {
+                if (set[v] == false)
+                {
+                    minindex = v;
+                    break;
+                }
+            }
+            return minindex;
         }
     }
 
