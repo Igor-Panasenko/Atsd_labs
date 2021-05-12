@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Graph_algorithms
 {
@@ -307,7 +309,10 @@ namespace Graph_algorithms
             printPath(parents[current], parents);
             Console.Write(current + " ");
         }
-
+        public void Prim_Sll()
+        {
+             
+        }
     }
 
     class Program
