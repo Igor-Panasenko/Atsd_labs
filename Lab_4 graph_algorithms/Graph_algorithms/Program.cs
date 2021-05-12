@@ -310,8 +310,8 @@ namespace Graph_algorithms
 
         public void Prim_Sll()
         {
-            int[] parent = new int[V];
-            int[] key = new int[V];
+            SortedList parent = new SortedList(V);
+            SortedList key = new SortedList(V);
             bool[] mstSet = new bool[V];
             for(int i=0; i<this.V; ++i)
             {
@@ -326,7 +326,7 @@ namespace Graph_algorithms
                 mstSet[u] = true;
                 for(int v=0; v<this.V; ++v)
                 {
-                    if(Adjacency_matrix[u,v]!=0 && mstSet[v]==false && Adjacency_matrix[u, v] <key[v])
+                    if(Adjacency_matrix[u,v]!=0 && mstSet[v]==false && Adjacency_matrix[u, v] <(int)key[v])
                     {
                         parent[v] = u;
                         key[v] = Adjacency_matrix[u, v];
@@ -336,22 +336,22 @@ namespace Graph_algorithms
             Print_MST(parent);
             
         }
-        private int MinKey ( bool[] set, int[] key)
+        private int MinKey ( bool[] set, SortedList key)
         {
             int min = int.MaxValue; 
             int minindex = -1;
             for(int v=0; v<this.V; ++v)
             {
-                if (set[v] == false && key[v]<min)
+                if (set[v] == false && (int)key[v]<min)
                 {
                     minindex = v;
-                    min = key[v];
+                    min =(int) key[v];
                     
                 }
             }
             return minindex;
         }
-        private void Print_MST (int[] parent)
+        private void Print_MST (SortedList parent)
         {
             int Sum_MST = 0;
             Console.WriteLine("Edge     Weight");
