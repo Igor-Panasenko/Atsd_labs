@@ -71,11 +71,21 @@ namespace Zadanie_for_lab_5
             rec_preorder(node.Left);
             rec_preorder(node.Right);
         }
-        public void IsEqual(BST<T> other_tree)
+        public bool IsEqual(BST<T> other_tree)
         {
             Node<T> root1 = this.Root;
             Node<T> root2 = other_tree.Root;
             int Equal_factor = rec_equal(root1, root2);
+            if(Equal_factor == 1)
+            {
+                Console.WriteLine("Trees are Equal");
+                return true;
+            }
+            else
+            { 
+               Console.WriteLine("Trees are NOT equal");
+               return false;    
+            }
         }
         public int rec_equal(Node<T> root1, Node<T> root2)
         {
