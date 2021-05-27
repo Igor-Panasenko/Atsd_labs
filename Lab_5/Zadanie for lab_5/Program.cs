@@ -12,6 +12,12 @@ namespace Zadanie_for_lab_5
         public Node() { }
     }  
 
+    public class BST<T> where T: IComparable
+    {
+
+    }
+
+
     class Program
     {
         static void Main(string[] args)
