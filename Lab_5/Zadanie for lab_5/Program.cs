@@ -73,11 +73,39 @@ namespace Zadanie_for_lab_5
         }
         public void IsEqual(BST<T> other_tree)
         {
-
+            Node<T> root1 = this.Root;
+            Node<T> root2 = other_tree.Root;
+            int Equal_factor = rec_equal(root1, root2);
         }
         public int rec_equal(Node<T> root1, Node<T> root2)
         {
-
+            if (root1 == null && root2 == null)
+            {
+                return 1;
+            }
+            else
+            {
+                if (root1 != null && root2 == null)
+                {
+                    return 0;
+                }
+                else
+                    if (root1 == null && root2 != null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    if(root1.Data.CompareTo(root2.Data) == 0 && rec_equal(root1.Left, root2.Left)==1 && rec_equal(root1.Right, root2.Right) == 1)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
         } 
     }
 
