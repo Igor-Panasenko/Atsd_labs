@@ -16,6 +16,7 @@ namespace Zadanie_for_lab_5
     {
         public Node<T> Root { get; set; } = null;
         private int number_elements = 0;
+        public int Number_elements { get { return number_elements; } set { number_elements = value; } }
         public BST()
         {
 
@@ -24,6 +25,19 @@ namespace Zadanie_for_lab_5
         {
             Root = new Node<T>(data);
             this.number_elements++;
+        }
+        public void Insert(T data)
+        {
+            Node<T> new_node = new Node<T>(data);
+            if (this.Root == null)
+            {
+                this.Number_elements++;
+                this.Root = new_node;
+            }
+            else
+            {
+                Root = InsertRec(this.Root, new_node);
+            }
         }
     }
 
