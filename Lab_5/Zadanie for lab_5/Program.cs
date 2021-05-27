@@ -56,6 +56,11 @@ namespace Zadanie_for_lab_5
             }
             return current;
         }
+        public void Preorder()
+        {
+            Console.WriteLine("Preorder sequance of traversal tree");
+
+        }
     }
 
 
