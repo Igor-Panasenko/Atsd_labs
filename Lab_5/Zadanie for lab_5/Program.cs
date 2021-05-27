@@ -39,6 +39,23 @@ namespace Zadanie_for_lab_5
                 Root = InsertRec(this.Root, new_node);
             }
         }
+        private Node<T> InsertRec(Node<T> current, Node<T> new_node)
+        {
+            if (current == null)
+            {
+                current = new_node;
+                return current;
+            }
+            if (current.Data.CompareTo(new_node.Data) > 0)
+            {
+                current.Left = InsertRec(current.Left, new_node);
+            }
+            else
+            {
+                current.Right = InsertRec(current.Right, new_node);
+            }
+            return current;
+        }
     }
 
 
