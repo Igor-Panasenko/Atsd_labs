@@ -59,7 +59,17 @@ namespace Zadanie_for_lab_5
         public void Preorder()
         {
             Console.WriteLine("Preorder sequance of traversal tree");
-
+            rec_preorder(this.Root);
+        }
+        private void rec_preorder(Node<T> node)
+        {
+            if(node == null)
+            {
+                return;
+            }
+            Console.Write(node.Data + ", ");
+            rec_preorder(node.Left);
+            rec_preorder(node.Right);
         }
     }
 
