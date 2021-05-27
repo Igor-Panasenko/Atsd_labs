@@ -14,7 +14,17 @@ namespace Zadanie_for_lab_5
 
     public class BST<T> where T: IComparable
     {
+        public Node<T> Root { get; set; } = null;
+        private int number_elements = 0;
+        public BST()
+        {
 
+        }
+        public BST(T data)
+        {
+            Root = new Node<T>(data);
+            this.number_elements++;
+        }
     }
 
 
