@@ -71,6 +71,14 @@ namespace Zadanie_for_lab_5
             rec_preorder(node.Left);
             rec_preorder(node.Right);
         }
+        public void IsEqual(BST<T> other_tree)
+        {
+
+        }
+        public int rec_equal(Node<T> root1, Node<T> root2)
+        {
+
+        } 
     }
 
 
